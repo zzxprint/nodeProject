@@ -1,22 +1,27 @@
 <template>
-	<div class="Footer">
-		<div class="aa">单元格</div>
-	</div>
+  <div class="Footer">
+    <van-tabbar v-model="active">
+      <van-tabbar-item name="home" icon="home-o">标签</van-tabbar-item>
+      <van-tabbar-item name="search" icon="search">标签</van-tabbar-item>
+      <van-tabbar-item name="friends" icon="friends-o">标签</van-tabbar-item>
+      <van-tabbar-item name="setting" icon="setting-o">标签</van-tabbar-item>
+    </van-tabbar>
+  </div>
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      active: 'home'
+    }
+  },
+  methods: {
+    changeActive () {
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
-.Footer{
-	background: #DDD;
-	padding: 20px 32px;
-	box-sizing: border-box;
-	.aa{
-		font-size: 28px;
-	}
-}
-</style>>
+</style>
