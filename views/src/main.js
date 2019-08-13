@@ -5,14 +5,16 @@ import App from './App'
 import router from './router'
 import axios from 'axios'// 引入axios
 import Vant from 'vant' //  引入vant
+import GlobalComponent from './common/js/globalComponents' // 全局组件
+import './common/js/rem.js'
 import 'vant/lib/index.css'
 import './common/css/base.css'
-import 'lib-flexible/flexible'
 
 Vue.prototype.$axios = axios
 axios.defaults.baseURL = 'http://localhost:3000'
 
 Vue.use(Vant)
+Vue.use(GlobalComponent)
 
 Vue.config.productionTip = false
 
