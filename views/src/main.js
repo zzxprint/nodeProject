@@ -7,6 +7,7 @@ import axios from 'axios'// 引入axios
 import Vant from 'vant' //  引入vant
 import 'vant/lib/index.css'
 import './common/css/base.css'
+import 'lib-flexible/flexible'
 
 Vue.prototype.$axios = axios
 axios.defaults.baseURL = 'http://localhost:3000'
