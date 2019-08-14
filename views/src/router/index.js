@@ -4,6 +4,7 @@ import index from '@/components/index'
 import shop from '@/components/shop/shop'
 import cart from '@/components/cart/cart'
 import order from '@/components/order/order'
+import orderDetail from '@/components/order/orderDetail'
 import mine from '@/components/mine/mine'
 
 Vue.use(Router)
@@ -29,6 +30,11 @@ export default new Router({
           path: '/order',
           name: 'order',
           component: order
+        },
+        {
+          path: 'order/orderDetail',
+          name: 'orderDetail',
+          component: orderDetail
         },
         {
           path: '/mine',

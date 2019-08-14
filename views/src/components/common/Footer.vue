@@ -1,10 +1,10 @@
 <template>
   <div class="Footer">
-    <van-tabbar v-model="active">
-      <van-tabbar-item to="/shop" icon="shop-o">商品</van-tabbar-item>
-      <van-tabbar-item to="/cart" icon="shopping-cart-o">购物车</van-tabbar-item>
-      <van-tabbar-item to="/order" icon="description">订单</van-tabbar-item>
-      <van-tabbar-item to="/mine" icon="user-o">我的</van-tabbar-item>
+    <van-tabbar v-model="active" @change="changeIndex">
+      <van-tabbar-item name="shop" icon="shop-o">商品</van-tabbar-item>
+      <van-tabbar-item name="cart" icon="shopping-cart-o">购物车</van-tabbar-item>
+      <van-tabbar-item name="order" icon="description">订单</van-tabbar-item>
+      <van-tabbar-item name="mine" icon="user-o">我的</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
@@ -13,11 +13,15 @@
 export default {
   data () {
     return {
-      active: 0
+      active: 'shop'
     }
   },
+  created () {
+    this.active = window.location.hash.split('/')[1]
+  },
   methods: {
-    changeActive () {
+    changeIndex () {
+      this.$router.push('/' + this.active)
     }
   }
 }
