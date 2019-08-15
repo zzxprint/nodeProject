@@ -17,7 +17,8 @@ export default {
     }
   },
   created () {
-    this.active = window.location.hash.split('/')[1]
+    console.log(window.location.pathname.split('/')[1])
+    this.active = window.location.pathname.split('/')[1]
   },
   methods: {
     changeIndex () {
