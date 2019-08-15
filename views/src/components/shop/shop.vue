@@ -12,13 +12,16 @@
 
 <script>
 export default {
-    data () {
+    data() {
         return {
-            items,
+            items: [],
             mainActiveIndex: 0,
-            actived: 1
+			activeId: 1,
         };
-    },
+	},
+	created() {
+		this.items = this.$util.shopList()
+	},
     methods: {
         onClickNav (index) {
             this.mainActiveIndex = index
