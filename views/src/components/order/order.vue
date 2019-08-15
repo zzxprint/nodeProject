@@ -7,11 +7,11 @@
 
 <script>
 export default {
-  methods: {
-    go () {
-      this.$router.push('/orderDetail')
-    }
-  }
+	methods: {
+		go () {
+			this.$router.push('/orderDetail')
+		}
+	}
 }
 </script>
 
