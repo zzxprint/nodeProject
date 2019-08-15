@@ -1,5 +1,5 @@
 <template>
-    <div class="Footer">
+    <div class="footer">
 		<van-tabbar v-model="active" route>
 			<van-tabbar-item to="/shop" name="shop" icon="shop-o">商品</van-tabbar-item>
 			<van-tabbar-item to="/cart" name="cart" icon="shopping-cart-o">购物车</van-tabbar-item>
@@ -20,4 +20,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100px;
+	width: 100%;
+	box-shadow: 0 -2px 5px #EFEFEF;
+}
 </style>
