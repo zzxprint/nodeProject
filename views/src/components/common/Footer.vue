@@ -17,7 +17,6 @@ export default {
     }
   },
   created () {
-    console.log(window.location.pathname.split('/')[1])
     this.active = window.location.pathname.split('/')[1]
   },
   methods: {
