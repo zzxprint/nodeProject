@@ -9,6 +9,13 @@ import GlobalComponent from './common/js/globalComponents' // 全局组件
 import './common/js/rem.js'
 import 'vant/lib/index.css'
 import './common/css/base.css'
+import Router from 'vue-router'
+
+// 解决路由报错问题
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 Vue.prototype.$axios = axios
 axios.defaults.baseURL = 'http://localhost:3000'

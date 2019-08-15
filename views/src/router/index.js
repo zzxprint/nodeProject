@@ -33,7 +33,7 @@ export default new Router({
           component: order
         },
         {
-          path: 'order/orderDetail',
+          path: '/orderDetail',
           name: 'orderDetail',
           component: orderDetail
         },

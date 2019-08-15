@@ -9,7 +9,7 @@
 export default {
   methods: {
     go () {
-      this.$router.push('order/orderDetail')
+      this.$router.push('/orderDetail')
     }
   }
 }
