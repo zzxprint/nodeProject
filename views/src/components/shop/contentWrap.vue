@@ -10,9 +10,12 @@
                     <div class="info-brief">商品简介</div>
                     <div class="shop-box">
                         <div class="price-box">￥8.88</div>
-                        <div class="cart-btn"><van-icon name="cart-circle" info="9" /></div>
+                        <div class="count-box">
+                            <svg-icon icon-class="minus"></svg-icon>
+                            <span>1</span>
+                            <svg-icon icon-class="plus"></svg-icon>
+                        </div>
                     </div>
-                    <svg-icon icon-class="start"></svg-icon>
                 </div>
             </li>
         </ul>
@@ -40,8 +43,8 @@ export default {
             display: flex;
             align-items: center;
             .img-box{
-                height: 200px;
-                width: 200px;
+                height: 160px;
+                width: 160px;
                 flex-shrink: 0;
                 img{
                     height: 100%;
@@ -49,7 +52,7 @@ export default {
                 }
             }
             .info-box{
-                min-height: 200px;
+                min-height: 160px;
                 width: 100%;
                 padding-left: 20px;
                 .info-title{
@@ -68,8 +71,24 @@ export default {
                     margin-top: 30px;
                     display: flex;
                     justify-content: space-between;
+                    align-items: center;
                     .price-box{
-                        font-size: 32px
+                        font-size: 32px;
+                        color: #00AAEE;
+                    }
+                    .count-box{
+                        display: flex;
+                        align-items: center;
+                        .svg-icon{
+                            font-size: 50px;
+                        }
+                        span{
+                            display: inline-block;
+                            width: 40px;
+                            padding: 0 10px;
+                            font-size: 32px;
+                            text-align: center;
+                        }
                     }
                 }
             }
