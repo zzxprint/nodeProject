@@ -18,7 +18,7 @@ export default {
     .content{
         height: auto;
         width: 100%;
-        margin-bottom: 105px;
+        margin-bottom: 100px;
     }
 }
 </style>

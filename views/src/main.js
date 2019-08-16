@@ -3,10 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'// 引入axios
+import axios from 'axios'
 import Vant from 'vant' //  引入vant
 import GlobalComponent from './common/js/globalComponents' // 全局组件
-import Util from './common/js/util'
 import './common/js/rem.js'
 import 'vant/lib/index.css'
 import './common/css/base.css'
@@ -19,8 +18,7 @@ Router.prototype.push = function push (location) {
 }
 
 Vue.prototype.$axios = axios
-Vue.prototype.$util = Util;
-axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseUrl = 'http://localhost:3000'
 
 Vue.use(Vant)
 Vue.use(GlobalComponent)
