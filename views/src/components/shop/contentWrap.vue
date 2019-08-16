@@ -1,5 +1,6 @@
 <template>
     <div class="content-wrap">
+        <!-- 列表 -->
         <ul class="list-content">
             <li v-for="(item, index) in commodity" :key="index" class="commodity-box">
                 <div class="img-box">
@@ -19,6 +20,8 @@
                 </div>
             </li>
         </ul>
+        <!-- 购物车 -->
+        <van-icon class="shopping-cart" name="cart-circle" :info="cartCount" />
     </div>
 </template>
 
@@ -27,6 +30,7 @@ export default {
     data() {
         return {
             commodity: [], //商品列表
+            cartCount: 0, //购物车商品数量
         };
     },
     created() {
@@ -44,11 +48,13 @@ export default {
         // 增加一个商品
         plusCommodity(item, index) {
             item.count++
+            this.cartCount++
             this.commodity.splice(index, 1, item)
         },
         // 减去一个商品
         minusCommodity(item, index) {
             item.count--
+            this.cartCount--
             this.commodity.splice(index, 1, item)
         }
     }
@@ -60,6 +66,7 @@ export default {
     padding-left: 190px;
     padding-right: 20px;
     background: #FFF;
+    // 列表
     .list-content{
         height: auto;
         background: #FFF;
@@ -119,6 +126,17 @@ export default {
                     }
                 }
             }
+        }
+    }
+    // 购物车
+    .shopping-cart{
+        position: absolute;
+        bottom: 150px;
+        right: 50px;
+        color: #00AAEE;
+        /deep/.van-info{
+            top: -10px;
+            padding: 3px 10px;
         }
     }
 }
