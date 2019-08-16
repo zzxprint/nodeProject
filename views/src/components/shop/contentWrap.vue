@@ -12,6 +12,7 @@
                         <div class="price-box">￥8.88</div>
                         <div class="cart-btn"><van-icon name="cart-circle" info="9" /></div>
                     </div>
+                    <svg-icon icon-class="start"></svg-icon>
                 </div>
             </li>
         </ul>

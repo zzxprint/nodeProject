@@ -7,6 +7,7 @@ import axios from 'axios'
 import Vant from 'vant' //  引入vant
 import GlobalComponent from './common/js/globalComponents' // 全局组件
 import './common/js/rem.js'
+import './icons'
 import 'vant/lib/index.css'
 import './common/css/base.css'
 import Router from 'vue-router'
