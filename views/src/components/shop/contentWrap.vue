@@ -11,9 +11,9 @@
                     <div class="shop-box">
                         <div class="price-box">￥{{item.commodityPrice}}</div>
                         <div class="count-box">
-                            <svg-icon @click="minusCommodity" v-if="item.count > 0" icon-class="minus"></svg-icon>
-                            <span v-if="item.count > 0">{{item.count}}</span>
-                            <svg-icon @click="plusCommodity" icon-class="plus"></svg-icon>
+                            <svg-icon v-if="item.count>0" @click="minusCommodity(item, index)" icon-class="minus"></svg-icon>
+                            <span v-if="item.count>0">{{item.count}}</span>
+                            <svg-icon @click="plusCommodity(item, index)" icon-class="plus"></svg-icon>
                         </div>
                     </div>
                 </div>
@@ -33,18 +33,23 @@ export default {
         // 请求商品信息
         this.$axios.get('/json/commodity.json').then(res => {
             this.commodity = res.data
+            this.commodity.forEach( ele => {
+                ele.count = 0
+            })
         }).catch(err => {
             console.log(err)
         })
     },
     methods: {
         // 增加一个商品
-        plusCommodity() {
-            console.log(11)
+        plusCommodity(item, index) {
+            item.count++
+            this.commodity.splice(index, 1, item)
         },
         // 减去一个商品
-        minusCommodity() {
-            console.log(22)
+        minusCommodity(item, index) {
+            item.count--
+            this.commodity.splice(index, 1, item)
         }
     }
 }
@@ -101,16 +106,15 @@ export default {
                     .count-box{
                         display: flex;
                         align-items: center;
-                        .svg-icon{
-                            font-size: 50px;
-                            cursor: pointer;
-                        }
                         span{
-                            display: inline-block;
                             width: 40px;
                             padding: 0 10px;
                             font-size: 32px;
+                            justify-content: center;
                             text-align: center;
+                        }
+                        .svg-icon{
+                            font-size: 50px;
                         }
                     }
                 }
