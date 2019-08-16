@@ -1,19 +1,19 @@
 <template>
     <div class="content-wrap">
         <ul class="list-content">
-            <li class="commodity-box">
+            <li v-for="(item, index) in commodity" :key="index" class="commodity-box">
                 <div class="img-box">
-                    <img src="../../assets/logo.png" alt="">
+                    <img :src="item.commodityImg" alt="">
                 </div>
                 <div class="info-box">
-                    <div class="info-title"><span>商品名称商品名称商品名称商品名称</span></div>
-                    <div class="info-brief">商品简介</div>
+                    <div class="info-title"><span>{{item.commodityName}}</span></div>
+                    <div class="info-brief">{{item.commodityInfo}}</div>
                     <div class="shop-box">
-                        <div class="price-box">￥8.88</div>
+                        <div class="price-box">￥{{item.commodityPrice}}</div>
                         <div class="count-box">
-                            <svg-icon icon-class="minus"></svg-icon>
-                            <span>1</span>
-                            <svg-icon icon-class="plus"></svg-icon>
+                            <svg-icon @click="minusCommodity" v-if="item.count > 0" icon-class="minus"></svg-icon>
+                            <span v-if="item.count > 0">{{item.count}}</span>
+                            <svg-icon @click="plusCommodity" icon-class="plus"></svg-icon>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,29 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            commodity: [], //商品列表
+        };
+    },
+    created() {
+        // 请求商品信息
+        this.$axios.get('/json/commodity.json').then(res => {
+            this.commodity = res.data
+        }).catch(err => {
+            console.log(err)
+        })
+    },
+    methods: {
+        // 增加一个商品
+        plusCommodity() {
+            console.log(11)
+        },
+        // 减去一个商品
+        minusCommodity() {
+            console.log(22)
+        }
+    }
 }
 </script>
 
@@ -38,7 +60,7 @@ export default {
         background: #FFF;
         .commodity-box{
             height: auto;
-            padding: 20px 0;
+            padding: 25px 0;
             border-bottom: 2px solid #EEE;
             display: flex;
             align-items: center;
@@ -81,6 +103,7 @@ export default {
                         align-items: center;
                         .svg-icon{
                             font-size: 50px;
+                            cursor: pointer;
                         }
                         span{
                             display: inline-block;
