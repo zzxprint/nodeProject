@@ -1,49 +1,25 @@
 <template>
     <div class="side-list">
         <ul>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
-            <li>酒水</li>
-            <li>饮料</li>
-            <li>零食</li>
+            <li v-for="item in sideList" :key="item.categoryId">{{item.categoryName}}</li>
         </ul>
     </div>
 </template>
 
 <script>
 export default {
-
+    data(){
+        return {
+            sideList: [],
+        }
+    },
+    created() {
+        this.$axios.get('/json/category.json').then(res => {
+            this.sideList = res.data.category
+        }).catch(err => {
+            console.log(err)
+        })
+    }
 }
 </script>
 

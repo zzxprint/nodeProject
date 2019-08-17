@@ -21,7 +21,7 @@
             </li>
         </ul>
         <!-- 购物车 -->
-        <van-icon class="shopping-cart" name="cart-circle" :info="cartCount" />
+        <van-icon v-if="cartCount>0" class="shopping-cart" name="cart-circle" :info="cartCount" />
     </div>
 </template>
 

@@ -1,0 +1,20 @@
+{
+    "category": [
+        {
+            "categoryId": "1",
+            "categoryName": "泡面"
+        },
+        {
+            "categoryId": "2",
+            "categoryName": "薯片"
+        },
+        {
+            "categoryId": "3",
+            "categoryName": "饮料"
+        },
+        {
+            "categoryId": "4",
+            "categoryName": "酒水"
+        }
+    ]
+}
