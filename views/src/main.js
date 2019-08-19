@@ -7,6 +7,7 @@ import Router from 'vue-router' // 解决路由报错问题
 import axios from 'axios' // 引入axios
 import util from './common/js/util' //扩展函数
 import Vant from 'vant' // 引入vant
+import Bus from './common/js/EventBus' //兄弟节点传值Bus
 import GlobalComponent from './common/js/globalComponents' // 全局组件
 import './common/js/rem.js' // 样式适配
 import './icons' // svg
@@ -21,6 +22,7 @@ Router.prototype.push = function push (location) {
 
 Vue.prototype.$axios = axios
 Vue.prototype.$util = util
+Vue.prototype.$bus = Bus
 axios.defaults.baseURL = 'http://localhost:3000/'
 
 Vue.use(Vant)

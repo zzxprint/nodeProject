@@ -34,17 +34,37 @@ export default {
         };
     },
     created() {
-        // 请求商品信息
-        this.$axios.get('/json/noodle.json').then(res => {
-            this.commodity = res.data
-            this.commodity.forEach( ele => {
-                ele.count = 0
-            })
-        }).catch(err => {
-            console.log(err)
+        this.$bus.$on('categoryChange', val => {
+            this.getCategoryList(val)
         })
+        // 默认获取商品列表
+        this.getCategoryList('1')
     },
     methods: {
+        // 请求商品信息
+        getCategoryList(id) {
+            let jsonName = ''
+            switch(id) {
+                case '1': 
+                    jsonName = 'noodle.json'
+                    break
+                case '2': 
+                    jsonName = 'chips.json'
+                    break
+                default: 
+                    jsonName = ''
+                    break
+            }
+            // 请求商品信息
+            this.$axios.get('/json/' + jsonName).then(res => {
+                this.commodity = res.data
+                this.commodity.forEach( ele => {
+                    ele.count = 0
+                })
+            }).catch(err => {
+                console.log(err)
+            })
+        },
         // 增加一个商品
         plusCommodity(item, index) {
             item.count++

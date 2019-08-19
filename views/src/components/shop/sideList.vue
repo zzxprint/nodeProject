@@ -18,7 +18,7 @@ export default {
     data(){
         return {
             sideList: [],
-            chooseId: 1, // 选择的商品列表ID
+            chooseId: '1', // 选择的商品列表ID
         }
     },
     created() {
@@ -32,6 +32,7 @@ export default {
         // 选择商品分类
         chooseCategory(id) {
             this.chooseId = id
+            this.$bus.$emit('categoryChange', id)
         }
     }
 }
