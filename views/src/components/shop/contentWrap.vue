@@ -35,7 +35,7 @@ export default {
     },
     created() {
         // 请求商品信息
-        this.$axios.get('/json/commodity.json').then(res => {
+        this.$axios.get('/json/noodle.json').then(res => {
             this.commodity = res.data
             this.commodity.forEach( ele => {
                 ele.count = 0

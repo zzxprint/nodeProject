@@ -1,7 +1,14 @@
 <template>
     <div class="side-list">
         <ul>
-            <li v-for="item in sideList" :key="item.categoryId">{{item.categoryName}}</li>
+            <li 
+            v-for="item in sideList" 
+            :key="item.categoryId" 
+            :class="{'active': item.categoryId == chooseId}"
+            @click="chooseCategory(item.categoryId)"
+            >
+            {{item.categoryName}}
+            </li>
         </ul>
     </div>
 </template>
@@ -11,6 +18,7 @@ export default {
     data(){
         return {
             sideList: [],
+            chooseId: 1, // 选择的商品列表ID
         }
     },
     created() {
@@ -19,6 +27,12 @@ export default {
         }).catch(err => {
             console.log(err)
         })
+    },
+    methods: {
+        // 选择商品分类
+        chooseCategory(id) {
+            this.chooseId = id
+        }
     }
 }
 </script>
@@ -46,6 +60,10 @@ export default {
             font-size: 28px;
             line-height: 90px;
             text-align: center;
+        }
+        .active{
+            font-size: 34px;
+            color: #00AAEE;
         }
     }
 }

@@ -12,14 +12,6 @@ export default {
     components: {
         'side-list': sideList,
         'content-wrap': contentWrap
-    },
-    data() {
-        return {
-        };
-	},
-	created() {
-	},
-    methods: {
     }
 }
 </script>
