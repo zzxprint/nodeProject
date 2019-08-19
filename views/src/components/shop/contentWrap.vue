@@ -51,6 +51,9 @@ export default {
                 case '2': 
                     jsonName = 'chips.json'
                     break
+                case '3': 
+                    jsonName = 'drinks.json'
+                    break
                 default: 
                     jsonName = ''
                     break
@@ -77,7 +80,8 @@ export default {
             this.cartCount--
             this.commodity.splice(index, 1, item)
         }
-    }
+    },
+    des
 }
 </script>
 
