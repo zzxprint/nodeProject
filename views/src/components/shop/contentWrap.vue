@@ -34,7 +34,7 @@ export default {
         };
     },
     created() {
-        this.$bus.$on('categoryChange', val => {
+        this.Bus.$on('categoryChange', val => {
             this.getCategoryList(val)
         })
         // 默认获取商品列表
@@ -81,7 +81,9 @@ export default {
             this.commodity.splice(index, 1, item)
         }
     },
-    des
+    destoryed(){
+        this.Bus.$off('categoryChange')
+    }
 }
 </script>
 

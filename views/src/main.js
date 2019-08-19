@@ -22,7 +22,7 @@ Router.prototype.push = function push (location) {
 
 Vue.prototype.$axios = axios
 Vue.prototype.$util = util
-Vue.prototype.$bus = Bus
+Vue.prototype.Bus = Bus
 axios.defaults.baseURL = 'http://localhost:3000/'
 
 Vue.use(Vant)

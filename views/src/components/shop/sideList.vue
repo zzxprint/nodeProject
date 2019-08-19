@@ -32,7 +32,7 @@ export default {
         // 选择商品分类
         chooseCategory(id) {
             this.chooseId = id
-            this.$bus.$emit('categoryChange', id)
+            this.Bus.$emit('categoryChange', id)
         }
     }
 }
