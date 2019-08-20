@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
@@ -33,12 +34,23 @@ export default {
             cartCount: 0, //购物车商品数量
         };
     },
+    computed: {
+        ...mapGetters([
+            'categoryId'
+        ])
+    },
+    watch: {
+        categoryId() {
+            this.getCategoryList(this.categoryId)
+        }
+    },
     created() {
-        this.Bus.$on('categoryChange', val => {
-            this.getCategoryList(val)
-        })
-        // 默认获取商品列表
-        this.getCategoryList('1')
+        // 默认获取商品列表,否则获取缓存列表
+        if(this.categoryId == '') {
+            this.getCategoryList('1')
+        }else {
+            this.getCategoryList(this.categoryId)
+        }
     },
     methods: {
         // 请求商品信息

@@ -11,10 +11,6 @@
         {
             "categoryId": "3",
             "categoryName": "饮料"
-        },
-        {
-            "categoryId": "4",
-            "categoryName": "酒水"
         }
     ]
 }

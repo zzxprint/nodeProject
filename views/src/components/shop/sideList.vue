@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
     data(){
         return {
@@ -21,18 +22,30 @@ export default {
             chooseId: '1', // 选择的商品列表ID
         }
     },
+    computed: {
+        ...mapGetters([
+            'categoryId'
+        ])
+    },
     created() {
+        // 获取分类列表
         this.$axios.get('/json/category.json').then(res => {
             this.sideList = res.data.category
         }).catch(err => {
             console.log(err)
         })
+        // 获取选中的分类，默认为1
+        if(this.categoryId == '') {
+            this.chooseCategory('1')
+        }else {
+            this.chooseCategory(this.categoryId)
+        }
     },
     methods: {
         // 选择商品分类
         chooseCategory(id) {
             this.chooseId = id
-            this.Bus.$emit('categoryChange', id)
+            this.$store.commit('CHANGE_CATEGORY_ID', id)
         }
     }
 }
