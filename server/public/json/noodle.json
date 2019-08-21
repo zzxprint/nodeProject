@@ -1,29 +1,34 @@
 [
     {
+        "commodityId": "1001",
         "commodityName": "统一老坛酸菜面",
         "commodityInfo": "桶装400g",
         "commodityImg": "http://localhost:3000/images/noodle/1.jpg",
         "commodityPrice": "5"
     },
     {
+        "commodityId": "1002",
         "commodityName": "康师傅红烧牛肉面",
         "commodityInfo": "桶装230g",
         "commodityImg": "http://localhost:3000/images/noodle/2.jpg",
         "commodityPrice": "4.5"
     },
     {
+        "commodityId": "1003",
         "commodityName": "康师傅红烧牛肉面",
         "commodityInfo": "袋装100g",
         "commodityImg": "http://localhost:3000/images/noodle/3.jpg",
         "commodityPrice": "2.5"
     },
     {
+        "commodityId": "1004",
         "commodityName": "康师傅酸菜牛肉面",
         "commodityInfo": "桶装230g",
         "commodityImg": "http://localhost:3000/images/noodle/4.jpg",
         "commodityPrice": "4.5"
     },
     {
+        "commodityId": "1005",
         "commodityName": "康师傅香菇炖鸡面",
         "commodityInfo": "袋装100g",
         "commodityImg": "http://localhost:3000/images/noodle/5.jpg",

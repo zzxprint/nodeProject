@@ -82,15 +82,21 @@ export default {
         },
         // 增加一个商品
         plusCommodity(item, index) {
+            // 改变页面商品数量
             item.count++
-            this.cartCount++
             this.commodity.splice(index, 1, item)
+            // 改变store商品数量
+            this.$store.commit('PLUS_COMMODITY', item)
+            console.log('购物车',this.$store.getters.cartList)
         },
         // 减去一个商品
         minusCommodity(item, index) {
+            // 改变页面商品数量
             item.count--
-            this.cartCount--
             this.commodity.splice(index, 1, item)
+            // 改变store商品数量
+            this.$store.commit('MINUS_COMMODITY', item)
+            console.log('购物车',this.$store.getters.cartList)
         }
     },
     destoryed(){

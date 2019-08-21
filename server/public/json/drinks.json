@@ -1,23 +1,27 @@
 [
     {
+        "commodityId": "3001",
         "commodityName": "可口可乐",
         "commodityInfo": "瓶装550ml",
         "commodityImg": "http://localhost:3000/images/drinks/1.jpg",
         "commodityPrice": "3"
     },
     {
+        "commodityId": "3002",
         "commodityName": "统一冰红茶",
         "commodityInfo": "瓶装550ml",
         "commodityImg": "http://localhost:3000/images/drinks/2.jpg",
         "commodityPrice": "3"
     },
     {
+        "commodityId": "3003",
         "commodityName": "尖叫",
         "commodityInfo": "瓶装550ml",
         "commodityImg": "http://localhost:3000/images/drinks/3.jpg",
         "commodityPrice": "4"
     },
     {
+        "commodityId": "3004",
         "commodityName": "旺仔牛奶",
         "commodityInfo": "罐装330ml",
         "commodityImg": "http://localhost:3000/images/drinks/4.jpg",

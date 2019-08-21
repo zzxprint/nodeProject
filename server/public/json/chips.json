@@ -1,23 +1,27 @@
 [
     {
+        "commodityId": "2001",
         "commodityName": "乐事薯片原味",
         "commodityInfo": "袋装80g",
         "commodityImg": "http://localhost:3000/images/chips/1.jpg",
         "commodityPrice": "5.5"
     },
     {
+        "commodityId": "2002",
         "commodityName": "乐事薯片黄瓜味",
         "commodityInfo": "袋装80g",
         "commodityImg": "http://localhost:3000/images/chips/2.jpg",
         "commodityPrice": "5.5"
     },
     {
+        "commodityId": "2003",
         "commodityName": "可比克薯片番茄味",
         "commodityInfo": "袋装60g",
         "commodityImg": "http://localhost:3000/images/chips/3.jpg",
         "commodityPrice": "2.5"
     },
     {
+        "commodityId": "2004",
         "commodityName": "可比克薯片爽口青瓜味",
         "commodityInfo": "袋装60g",
         "commodityImg": "http://localhost:3000/images/chips/4.jpg",
