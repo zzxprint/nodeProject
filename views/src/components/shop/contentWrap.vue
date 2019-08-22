@@ -65,9 +65,9 @@ export default {
     },
     methods: {
         // 请求商品信息
-        getCategoryList(id) {
+        getCategoryList(categoryId) {
             let jsonName = ''
-            switch(id) {
+            switch(categoryId) {
                 case '1': 
                     jsonName = 'noodle.json'
                     break
@@ -84,9 +84,19 @@ export default {
             // 请求商品信息
             this.$axios.get('/json/' + jsonName).then(res => {
                 this.commodity = res.data
-                this.commodity.forEach( ele => {
-                    ele.count = 0
-                })
+                // 默认给所有的商品数量0
+                for(let i = 0; i < this.commodity.length; i++){
+                    this.commodity[i].count = 0
+                    // 检查该商品有没有被加入购物车
+                    if(this.cartList.length != 0){
+                        for(let j = 0; j < this.cartList.length; j++){
+                            if(this.commodity[i].commodityId == this.cartList[j].commodityId){
+                                this.commodity[i].count = this.cartList[j].count
+                                break
+                            }
+                        }
+                    }
+                }
             }).catch(err => {
                 console.log(err)
             })
