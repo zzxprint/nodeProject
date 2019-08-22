@@ -21,7 +21,7 @@
             </li>
         </ul>
         <!-- 购物车 -->
-        <van-icon v-if="cartCount>0" class="shopping-cart" name="cart-circle" :info="cartCount" />
+        <van-icon v-if="cartCount > 0" class="shopping-cart" name="cart-circle" :info="cartCount" />
     </div>
 </template>
 
@@ -31,21 +31,32 @@ export default {
     data() {
         return {
             commodity: [], //商品列表
-            cartCount: 0, //购物车商品数量
         };
     },
     computed: {
         ...mapGetters([
-            'categoryId'
-        ])
+            'categoryId',
+            'cartList'
+        ]),
+        // 购物车商品数量
+        cartCount() {
+            let count = 0
+            if(this.cartList.length != 0){
+                for(let i = 0; i < this.cartList.length; i++){
+                    count += this.cartList[i].count
+                }
+            }
+            return count
+        }
     },
     watch: {
+        // 当前选择的分类ID
         categoryId() {
             this.getCategoryList(this.categoryId)
         }
     },
     created() {
-        // 默认获取商品列表,否则获取缓存列表
+        // 加载时默认获取商品列表,否则获取缓存列表
         if(this.categoryId == '') {
             this.getCategoryList('1')
         }else {
@@ -82,25 +93,20 @@ export default {
         },
         // 增加一个商品
         plusCommodity(item, index) {
-            // 改变页面商品数量
+            // 改变页面列表商品数量
             item.count++
             this.commodity.splice(index, 1, item)
-            // 改变store商品数量
+            // 改变store中商品数量
             this.$store.commit('PLUS_COMMODITY', item)
-            console.log('购物车',this.$store.getters.cartList)
         },
         // 减去一个商品
         minusCommodity(item, index) {
-            // 改变页面商品数量
+            // 改变页面列表商品数量
             item.count--
             this.commodity.splice(index, 1, item)
-            // 改变store商品数量
+            // 改变store中商品数量
             this.$store.commit('MINUS_COMMODITY', item)
-            console.log('购物车',this.$store.getters.cartList)
         }
-    },
-    destoryed(){
-        this.Bus.$off('categoryChange')
     }
 }
 </script>
