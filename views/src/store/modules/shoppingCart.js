@@ -36,6 +36,16 @@ const shoppingCart = {
                     break
                 }
             }
+        },
+        // 购物车删除一个商品
+        DELETE_COMMODITY: (state, payload) => {
+            let commodity = Object.assign({}, payload)
+            for(let i = 0; i < state.cartList.length; i++){
+                if(commodity.commodityId == state.cartList[i].commodityId){
+                    state.cartList.splice(i, 1)
+                    break
+                }
+            }
         }
     }
 }

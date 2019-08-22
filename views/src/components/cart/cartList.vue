@@ -2,23 +2,28 @@
     <div class="cart-list">
         <!-- 列表 -->
         <ul class="list-content">
-            <li v-for="(item, index) in cartList" :key="index" class="commodity-box">
-                <div class="img-box">
-                    <img :src="item.commodityImg" alt="">
-                </div>
-                <div class="info-box">
-                    <div class="info-title"><span>{{item.commodityName}}</span></div>
-                    <div class="info-brief">{{item.commodityInfo}}</div>
-                    <div class="shop-box">
-                        <div class="price-box">￥{{item.commodityPrice}}</div>
-                        <div class="count-box">
-                            <svg-icon v-if="item.count>0" @click="minusCommodity(item, index)" icon-class="minus"></svg-icon>
-                            <span v-if="item.count>0">{{item.count}}</span>
-                            <svg-icon @click="plusCommodity(item, index)" icon-class="plus"></svg-icon>
+            <van-swipe-cell v-for="(item, index) in cartList" :key="index">
+                <li class="commodity-box">
+                    <div class="img-box">
+                        <img :src="item.commodityImg" alt="">
+                    </div>
+                    <div class="info-box">
+                        <div class="info-title"><span>{{item.commodityName}}</span></div>
+                        <div class="info-brief">{{item.commodityInfo}}</div>
+                        <div class="shop-box">
+                            <div class="price-box">￥{{item.commodityPrice}}</div>
+                            <div class="count-box">
+                                <svg-icon v-if="item.count>0" @click="minusCommodity(item, index)" icon-class="minus"></svg-icon>
+                                <span v-if="item.count>0">{{item.count}}</span>
+                                <svg-icon @click="plusCommodity(item, index)" icon-class="plus"></svg-icon>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
+                <template slot="right">
+                    <van-button block square type="danger" text="删除" @click="deleteCommodity(item, index)"/>
+                </template>
+            </van-swipe-cell>
         </ul>
     </div>
 </template>
@@ -28,7 +33,6 @@ import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
-            commodity: [], //商品列表
         };
     },
     computed: {
@@ -36,12 +40,22 @@ export default {
             'cartList'
         ])
     },
+    methods: {
+        // 删除一个购物车商品
+        deleteCommodity(item, index) {
+            this.$dialog.confirm({
+                message: '删除商品？'
+            }).then(() => {
+                // 购物车删除一个商品
+                this.$store.commit('DELETE_COMMODITY', item)
+            }).catch(() => {})
+        }
+    }
 }
 </script>
 
 <style lang="less" scoped>
 .cart-list{
-    padding: 0 20px;
     background: #FFF;
     // 列表
     .list-content{
@@ -49,7 +63,7 @@ export default {
         background: #FFF;
         .commodity-box{
             height: auto;
-            padding: 25px 0;
+            padding: 25px 20px;
             border-bottom: 2px solid #EEE;
             display: flex;
             align-items: center;
@@ -104,6 +118,11 @@ export default {
                 }
             }
         }
+    }
+    // 覆盖vant样式
+    /deep/ .van-swipe-cell .van-button{
+        height: 100%;
+        width: 100%;
     }
 }
 </style>
