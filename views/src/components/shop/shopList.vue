@@ -1,5 +1,5 @@
 <template>
-    <div class="content-wrap">
+    <div class="shop-list">
         <!-- 列表 -->
         <ul class="list-content">
             <li v-for="(item, index) in commodity" :key="index" class="commodity-box">
@@ -21,7 +21,7 @@
             </li>
         </ul>
         <!-- 购物车 -->
-        <van-icon v-if="cartCount > 0" class="shopping-cart" name="cart-circle" :info="cartCount" />
+        <van-icon v-if="cartCount > 0" class="shopping-cart" name="cart-circle" :info="cartCount" @click="gotoCart"/>
     </div>
 </template>
 
@@ -116,13 +116,17 @@ export default {
             this.commodity.splice(index, 1, item)
             // 改变store中商品数量
             this.$store.commit('MINUS_COMMODITY', item)
+        },
+        // 跳转到购物车页面
+        gotoCart() {
+            this.$router.push('cart')
         }
     }
 }
 </script>
 
 <style lang="less" scoped>
-.content-wrap{
+.shop-list{
     padding-left: 190px;
     padding-right: 20px;
     background: #FFF;

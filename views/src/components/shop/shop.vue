@@ -1,17 +1,17 @@
 <template>
     <div class="shop">
-        <side-list></side-list>
-        <content-wrap></content-wrap>
+        <shop-side></shop-side>
+        <shop-list></shop-list>
     </div>
 </template>
 
 <script>
-import sideList from './sideList'
-import contentWrap from './contentWrap'
+import shopSide from './shopSide'
+import shopList from './shopList'
 export default {
     components: {
-        'side-list': sideList,
-        'content-wrap': contentWrap
+        'shop-side': shopSide,
+        'shop-list': shopList
     }
 }
 </script>
