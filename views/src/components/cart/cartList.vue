@@ -4,6 +4,9 @@
         <ul class="list-content">
             <van-swipe-cell v-for="(item, index) in cartList" :key="index">
                 <li class="commodity-box">
+                    <div class="select-btn">
+                        <van-checkbox v-model="item.selected"></van-checkbox>
+                    </div>
                     <div class="img-box">
                         <img :src="item.commodityImg" alt="">
                     </div>
@@ -67,6 +70,22 @@ export default {
             border-bottom: 2px solid #EEE;
             display: flex;
             align-items: center;
+            .select-btn{
+                height: 160px;
+                width: 80px;
+                padding-right: 20px;
+                margin-right: 20px;
+                flex-shrink: 0;
+                border-right: 2px solid #EEE;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                // 覆盖样式
+                /deep/ .van-checkbox__icon--checked .van-icon{
+                    background: #00AAEE;
+                    border-color: #00AAEE;
+                }
+            }
             .img-box{
                 height: 160px;
                 width: 160px;

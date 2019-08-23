@@ -9,6 +9,8 @@ const shoppingCart = {
             let commodity = Object.assign({}, payload)
             // 当购物车为空时直接push
             if(state.cartList.length == 0){
+                // 默认选中
+                commodity.selected = true
                 state.cartList.push(commodity)
             }else {
                 for(let i = 0; i < state.cartList.length; i++){
@@ -17,6 +19,8 @@ const shoppingCart = {
                         break
                     }
                     if(i == state.cartList.length - 1){
+                        // 默认选中
+                        commodity.selected = true
                         state.cartList.push(commodity)
                         break
                     }
@@ -45,6 +49,13 @@ const shoppingCart = {
                     state.cartList.splice(i, 1)
                     break
                 }
+            }
+        },
+        // 全选与取消全选
+        CHECKALL_COMMODITY: (state, payload) => {
+            console.log('payload', payload)
+            for(let i = 0; i < state.cartList.length; i++){
+                state.cartList[i].selected = payload
             }
         }
     }

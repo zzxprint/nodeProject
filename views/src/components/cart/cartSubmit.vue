@@ -15,13 +15,21 @@ import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
-            checked: ''
         }
     },
     computed: {
         ...mapGetters([
-            'cartTotalPrice'
-        ])
+            'cartTotalPrice',
+            'cartAllSelected'
+        ]),
+        checked: {
+            get() {
+                return this.cartAllSelected
+            },
+            set(val) {
+                this.$store.commit('CHECKALL_COMMODITY', val)
+            }
+        }
     },
     methods: {
         submitOrder() {
