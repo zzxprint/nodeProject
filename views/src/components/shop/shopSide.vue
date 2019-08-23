@@ -74,10 +74,12 @@ export default {
             font-size: 28px;
             line-height: 90px;
             text-align: center;
+            transition: font-size .1s;
         }
         .active{
             font-size: 34px;
             color: #00AAEE;
+            transition: font-size .1s;
         }
     }
 }
