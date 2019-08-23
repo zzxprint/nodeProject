@@ -53,7 +53,6 @@ const shoppingCart = {
         },
         // 全选与取消全选
         CHECKALL_COMMODITY: (state, payload) => {
-            console.log('payload', payload)
             for(let i = 0; i < state.cartList.length; i++){
                 state.cartList[i].selected = payload
             }
