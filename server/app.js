@@ -1,11 +1,12 @@
 var createError = require('http-errors');
-require('./db') //引入mongodb
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var cors = require('cors'); //跨域配置
+// 数据库连接
+var mongoose = require('./config/mongoose.js');
+var db = mongoose();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
