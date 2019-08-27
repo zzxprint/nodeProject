@@ -16,9 +16,10 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index,
+      redirect: '/shop',
       children: [
         {
-          path: '/shop',
+          path: '/',
           name: 'shop',
           component: shop
         },
@@ -33,16 +34,16 @@ export default new Router({
           component: order
         },
         {
-          path: '/orderDetail',
-          name: 'orderDetail',
-          component: orderDetail
-        },
-        {
           path: '/mine',
           name: 'mine',
           component: mine
         }
       ]
-    }
+    },
+    {
+      path: '/orderDetail',
+      name: 'orderDetail',
+      component: orderDetail
+    },
   ]
 })
