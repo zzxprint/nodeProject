@@ -29,7 +29,7 @@ export default {
     },
     created() {
         // 获取分类列表
-        this.$axios.get('/json/category.json').then(res => {
+        this.$axios.post('/category/getAllCategory').then(res => {
             this.sideList = res.data.category
         }).catch(err => {
             console.log(err)
