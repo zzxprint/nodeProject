@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import mineBaseInfo from './mineBaseInfo'
-import mineDiscount from './mineDiscount'
+import mineBaseInfo from './section/mineBaseInfo'
+import mineDiscount from './section/mineDiscount'
 export default {
     components: {
         'mine-base-info': mineBaseInfo,

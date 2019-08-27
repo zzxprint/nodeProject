@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import cartList from './cartList'
-import cartSubmit from './cartSubmit'
+import cartList from './section/cartList'
+import cartSubmit from './section/cartSubmit'
 export default {
     components: {
         'cart-list': cartList,

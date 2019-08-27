@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import categorySide from './categorySide'
-import categoryList from './categoryList'
+import categorySide from './section/categorySide'
+import categoryList from './section/categoryList'
 export default {
     components: {
         'category-side': categorySide,
