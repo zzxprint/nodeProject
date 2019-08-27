@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/components/index'
 import shop from '@/components/shop/shop'
+import category from '@/components/category/category'
 import cart from '@/components/cart/cart'
 import order from '@/components/order/order'
 import orderDetail from '@/components/order/orderDetail'
@@ -14,14 +15,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'index',
       component: index,
-      redirect: '/shop',
       children: [
         {
           path: '/',
           name: 'shop',
           component: shop
+        },
+        {
+          path: '/category',
+          name: 'category',
+          component: category
         },
         {
           path: '/cart',

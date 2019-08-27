@@ -1,5 +1,5 @@
 <template>
-    <div class="shop-list">
+    <div class="category-list">
         <!-- 列表 -->
         <ul class="list-content">
             <li v-for="(item, index) in commodity" :key="index" class="commodity-box">
@@ -112,7 +112,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.shop-list{
+.category-list{
     padding-left: 190px;
     padding-right: 20px;
     background: #FFF;

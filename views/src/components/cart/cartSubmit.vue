@@ -43,6 +43,7 @@ export default {
 .cart-submit{
     // 覆盖样式
     /deep/ .van-submit-bar{
+        bottom: 102px;
         padding-left: 20px;
         box-sizing: border-box;
         // 全选

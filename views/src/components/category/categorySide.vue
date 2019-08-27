@@ -1,5 +1,5 @@
 <template>
-    <div class="shop-side">
+    <div class="category-side">
         <ul>
             <li 
             v-for="item in sideList" 
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.shop-side{
+.category-side{
     position: fixed;
     top: 0;
     bottom: 100px;
