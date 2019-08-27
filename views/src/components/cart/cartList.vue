@@ -52,7 +52,24 @@ export default {
                 // 购物车删除一个商品
                 this.$store.commit('DELETE_COMMODITY', item)
             }).catch(() => {})
-        }
+        },
+        // 增加一个商品
+        plusCommodity(item, index) {
+            this.$store.commit('PLUS_COMMODITY', item)
+        },
+        // 减少一个商品
+        minusCommodity(item, index) {
+            if(item.count == 1){
+                this.$dialog.confirm({
+                    message: '删除商品？'
+                }).then(() => {
+                    // 购物车删除一个商品
+                    this.$store.commit('DELETE_COMMODITY', item)
+                }).catch(() => {})
+            }else{
+                this.$store.commit('MINUS_COMMODITY', item)
+            }
+        },
     }
 }
 </script>
