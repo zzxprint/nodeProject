@@ -66,24 +66,10 @@ export default {
     methods: {
         // 请求商品信息
         getCategoryList(categoryId) {
-            let jsonName = ''
-            switch(categoryId) {
-                case '1': 
-                    jsonName = 'noodle.json'
-                    break
-                case '2': 
-                    jsonName = 'chips.json'
-                    break
-                case '3': 
-                    jsonName = 'drinks.json'
-                    break
-                default: 
-                    jsonName = ''
-                    break
-            }
+            let submitForm = {categoryId: categoryId}
             // 请求商品信息
-            this.$axios.get('/json/' + jsonName).then(res => {
-                this.commodity = res.data
+            this.$axios.post('/commodity/getCommodity',submitForm).then(res => {
+                this.commodity = res.data.commodityList
                 // 默认给所有的商品数量0
                 for(let i = 0; i < this.commodity.length; i++){
                     this.commodity[i].count = 0
