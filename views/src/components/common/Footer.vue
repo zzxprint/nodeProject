@@ -18,7 +18,12 @@ export default {
 	},
 	computed: {
 		cartCount() {
-			return this.$store.getters.cartTotalCount
+			let count = this.$store.getters.cartTotalCount
+			if(count == 0){
+				return ''
+			}else{
+				return count
+			}
 		}
 	}
 }
@@ -32,5 +37,9 @@ export default {
 	height: 100px;
 	width: 100%;
 	box-shadow: 0 -2px 5px #EFEFEF;
+	/deep/ .van-info{
+		right: -15px;
+		padding: 3px 8px 0 8px;
+	}
 }
 </style>

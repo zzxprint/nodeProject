@@ -2,7 +2,7 @@
     <div class="cart-list">
         <!-- 列表 -->
         <ul class="list-content">
-            <van-swipe-cell v-for="(item, index) in cartList" :key="index">
+            <van-swipe-cell v-for="(item, index) in cartList" :key="index" :right-width="100">
                 <li class="commodity-box">
                     <div class="select-btn">
                         <van-checkbox v-model="item.selected"></van-checkbox>
@@ -157,9 +157,12 @@ export default {
         }
     }
     // 覆盖vant样式
-    /deep/ .van-swipe-cell .van-button{
-        height: 100%;
-        width: 100%;
+    /deep/ .van-swipe-cell{
+        .van-button{
+            height: 100%;
+            width: 200px;
+        }
     }
+    
 }
 </style>
