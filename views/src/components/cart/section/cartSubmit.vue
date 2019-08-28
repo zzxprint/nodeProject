@@ -41,9 +41,13 @@ export default {
 
 <style lang="less" scoped>
 .cart-submit{
+    position: fixed;
+    bottom: 101px;
+    height: 100px;
+    width: 100%;
     // 覆盖样式
     /deep/ .van-submit-bar{
-        bottom: 102px;
+        bottom: 101px;
         padding-left: 20px;
         box-sizing: border-box;
         // 全选

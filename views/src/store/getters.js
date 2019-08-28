@@ -23,6 +23,16 @@ const getters = {
             }
         }
         return flag
+    },
+    // 购物车总数量
+    cartTotalCount: state => {
+        let count = 0
+        if(state.shoppingCart.cartList.length != 0){
+            for(let i = 0; i < state.shoppingCart.cartList.length; i++){
+                count += state.shoppingCart.cartList[i].count
+            }
+        }
+        return count
     }
 }
 

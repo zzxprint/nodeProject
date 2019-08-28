@@ -77,6 +77,7 @@ export default {
 <style lang="less" scoped>
 .cart-list{
     background: #FFF;
+    margin-bottom: 201px;
     // 列表
     .list-content{
         height: auto;

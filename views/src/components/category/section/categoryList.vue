@@ -12,16 +12,12 @@
                     <div class="shop-box">
                         <div class="price-box">￥{{item.commodityPrice}}</div>
                         <div class="count-box">
-                            <svg-icon v-if="item.count>0" @click="minusCommodity(item, index)" icon-class="minus"></svg-icon>
-                            <span v-if="item.count>0">{{item.count}}</span>
-                            <svg-icon @click="plusCommodity(item, index)" icon-class="plus"></svg-icon>
+                            <van-icon name="cart-circle" @click="plusCommodity(item)"/>
                         </div>
                     </div>
                 </div>
             </li>
         </ul>
-        <!-- 购物车 -->
-        <van-icon v-if="cartCount > 0" class="shopping-cart" name="cart-circle" :info="cartCount" @click="gotoCart"/>
     </div>
 </template>
 
@@ -38,16 +34,6 @@ export default {
             'categoryId',
             'cartList'
         ]),
-        // 购物车商品数量
-        cartCount() {
-            let count = 0
-            if(this.cartList.length != 0){
-                for(let i = 0; i < this.cartList.length; i++){
-                    count += this.cartList[i].count
-                }
-            }
-            return count
-        }
     },
     watch: {
         // 当前选择的分类ID
@@ -70,38 +56,14 @@ export default {
             // 请求商品信息
             this.$axios.post('/commodity/getCommodity',submitForm).then(res => {
                 this.commodity = res.data.commodityList
-                // 默认给所有的商品数量0
-                for(let i = 0; i < this.commodity.length; i++){
-                    this.commodity[i].count = 0
-                    // 检查该商品有没有被加入购物车
-                    if(this.cartList.length != 0){
-                        for(let j = 0; j < this.cartList.length; j++){
-                            if(this.commodity[i].commodityId == this.cartList[j].commodityId){
-                                this.commodity[i].count = this.cartList[j].count
-                                break
-                            }
-                        }
-                    }
-                }
             }).catch(err => {
                 console.log(err)
             })
         },
         // 增加一个商品
-        plusCommodity(item, index) {
-            // 改变页面列表商品数量
-            item.count++
-            this.commodity.splice(index, 1, item)
+        plusCommodity(item) {
             // 改变store中商品数量
             this.$store.commit('PLUS_COMMODITY', item)
-        },
-        // 减去一个商品
-        minusCommodity(item, index) {
-            // 改变页面列表商品数量
-            item.count--
-            this.commodity.splice(index, 1, item)
-            // 改变store中商品数量
-            this.$store.commit('MINUS_COMMODITY', item)
         },
         // 跳转到购物车页面
         gotoCart() {
@@ -163,15 +125,9 @@ export default {
                     .count-box{
                         display: flex;
                         align-items: center;
-                        span{
-                            width: 40px;
-                            padding: 0 10px;
-                            font-size: 32px;
-                            justify-content: center;
-                            text-align: center;
-                        }
-                        .svg-icon{
-                            font-size: 50px;
+                        .van-icon{
+                            font-size: 60px;
+                            color: #00AAEE;
                         }
                     }
                 }

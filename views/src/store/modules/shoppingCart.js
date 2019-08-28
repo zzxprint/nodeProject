@@ -9,6 +9,7 @@ const shoppingCart = {
             let commodity = Object.assign({}, payload)
             // 当购物车为空时直接push
             if(state.cartList.length == 0){
+                commodity.count = 1
                 // 默认选中
                 commodity.selected = true
                 state.cartList.push(commodity)
@@ -19,6 +20,8 @@ const shoppingCart = {
                         break
                     }
                     if(i == state.cartList.length - 1){
+                        // 找到数组末尾还没有就添加进去
+                        commodity.count = 1
                         // 默认选中
                         commodity.selected = true
                         state.cartList.push(commodity)
