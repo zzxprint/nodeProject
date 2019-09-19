@@ -10,10 +10,12 @@ import Vant from 'vant' // 引入vant
 import Bus from './common/js/EventBus' //兄弟节点传值Bus
 import store from './store'
 import GlobalComponent from './common/js/globalComponents' // 全局组件
+import VueAwesomeSwiper from 'vue-awesome-swiper' // swiper
 import './common/js/rem.js' // 样式适配
 import './icons' // svg
 import 'vant/lib/index.css'
 import './common/css/base.css'
+import 'swiper/dist/css/swiper.css'
 
 // 解决路由报错问题
 const originalPush = Router.prototype.push
@@ -28,6 +30,7 @@ axios.defaults.baseURL = 'http://localhost:3000/'
 
 Vue.use(Vant)
 Vue.use(GlobalComponent)
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 

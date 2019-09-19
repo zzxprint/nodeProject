@@ -3,7 +3,7 @@
         <!-- 列表 -->
         <ul class="list-content">
             <li v-for="(item, index) in commodity" :key="index" class="commodity-box">
-                <div class="img-box">
+                <div class="img-box" @click="photoView(item.commodityImg)">
                     <img :src="item.commodityImg" alt="">
                 </div>
                 <div class="info-box">
@@ -23,6 +23,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { ImagePreview } from 'vant';
 export default {
     data() {
         return {
@@ -68,6 +69,10 @@ export default {
         // 跳转到购物车页面
         gotoCart() {
             this.$router.push('cart')
+        },
+        // 图片预览
+        photoView(url) {
+            ImagePreview([url]);
         }
     }
 }
