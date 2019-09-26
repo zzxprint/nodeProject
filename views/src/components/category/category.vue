@@ -1,6 +1,8 @@
 <template>
     <div class="category">
+        <!-- 侧边栏 -->
         <category-side></category-side>
+        <!-- 商品列表 -->
         <category-list></category-list>
     </div>
 </template>
