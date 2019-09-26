@@ -1,5 +1,5 @@
 <template>
-    <div class="cart-submit">
+    <div class="cart-submit" v-if="cartTotalCount != 0">
         <van-submit-bar
         :price="cartTotalPrice*100"
         button-text="提交订单"
@@ -20,7 +20,8 @@ export default {
     computed: {
         ...mapGetters([
             'cartTotalPrice',
-            'cartAllSelected'
+            'cartAllSelected',
+            'cartTotalCount'
         ]),
         checked: {
             get() {

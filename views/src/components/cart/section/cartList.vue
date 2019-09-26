@@ -1,7 +1,7 @@
 <template>
     <div class="cart-list">
         <!-- 列表 -->
-        <ul class="list-content">
+        <ul class="list-content" v-if="cartTotalCount != 0">
             <van-swipe-cell v-for="(item, index) in cartList" :key="index" :right-width="100">
                 <li class="commodity-box">
                     <div class="select-btn">
@@ -28,6 +28,12 @@
                 </template>
             </van-swipe-cell>
         </ul>
+        <!-- 列表为空时 -->
+        <div class="list-empty" v-if="cartTotalCount == 0">
+            <svg-icon icon-class="emptyShoppingCart"></svg-icon>
+            <span>购物车还是空的</span>
+            <button @click="toCategory">去逛逛</button>
+        </div>
     </div>
 </template>
 
@@ -40,7 +46,8 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'cartList'
+            'cartList',
+            'cartTotalCount'
         ])
     },
     methods: {
@@ -70,13 +77,16 @@ export default {
                 this.$store.commit('MINUS_COMMODITY', item)
             }
         },
+        // 提示去逛逛
+        toCategory() {
+            this.$router.push('/category')
+        }
     }
 }
 </script>
 
 <style lang="less" scoped>
 .cart-list{
-    background: #FFF;
     margin-bottom: 201px;
     // 列表
     .list-content{
@@ -163,6 +173,36 @@ export default {
             width: 200px;
         }
     }
-    
+    // 购物车为空样式
+    .list-empty{
+        height: 500px;
+        width: 500px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -250px;
+        margin-top: -250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .svg-icon{
+            height: 150px;
+            width: 150px;
+        }
+        span{
+            font-size: 30px;
+            color: #999;
+            margin-top: 40px;
+        }
+        button{
+            margin-top: 40px;
+            padding: 20px 50px;
+            background: #FAFAFA;
+            color: #666;
+            font-size: 30px;
+            border: 2px solid #999;
+            border-radius: 10px;
+        }
+    }
 }
 </style>
