@@ -33,6 +33,17 @@ const getters = {
             }
         }
         return count
+    },
+    cartSelectCount: state => {
+        let count = 0
+        if(state.shoppingCart.cartList.length != 0){
+            for(let i = 0; i < state.shoppingCart.cartList.length; i++){
+                if(state.shoppingCart.cartList[i].selected){
+                    count++
+                }
+            }
+        }
+        return count
     }
 }
 

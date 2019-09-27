@@ -59,7 +59,15 @@ const shoppingCart = {
             for(let i = 0; i < state.cartList.length; i++){
                 state.cartList[i].selected = payload
             }
-        }
+        },
+        // 删除所有选中的商品
+        DELETE_SELECT_COMMODITY: state => {
+            for(let i = 0; i < state.cartList.length; i++){
+                if(state.cartList[i].selected){
+                    state.cartList.splice(i--, 1)
+                }
+            }
+        },
     }
 }
 
