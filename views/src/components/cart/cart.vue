@@ -1,7 +1,7 @@
 <template>
     <div class="cart">
         <!-- 头部 -->
-        <Header></Header>
+        <Header title="购物车"></Header>
         <!-- 购物车列表 -->
         <cart-list></cart-list>
         <!-- 订单提交 -->

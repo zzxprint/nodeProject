@@ -54,7 +54,7 @@ export default {
 <style lang="less" scoped>
 .category-side{
     position: fixed;
-    top: 0;
+    top: 100px;
     bottom: 100px;
     left: 0;
     width: 160px;

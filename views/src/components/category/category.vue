@@ -1,5 +1,7 @@
 <template>
     <div class="category">
+        <!-- 头部 -->
+        <Header title="分类"></Header>
         <!-- 侧边栏 -->
         <category-side></category-side>
         <!-- 商品列表 -->
