@@ -1,10 +1,9 @@
 <template>
     <div class="shop-carousel">
         <van-swipe :autoplay="3000" indicator-color="white">
-            <van-swipe-item>1</van-swipe-item>
-            <van-swipe-item>2</van-swipe-item>
-            <van-swipe-item>3</van-swipe-item>
-            <van-swipe-item>4</van-swipe-item>
+            <van-swipe-item><img src="../../../assets/carousel/carousel_1.jpg"/></van-swipe-item>
+            <van-swipe-item><img src="../../../assets/carousel/carousel_2.jpg"/></van-swipe-item>
+            <van-swipe-item><img src="../../../assets/carousel/carousel_3.jpg"/></van-swipe-item>
         </van-swipe>
     </div>
 </template>
@@ -29,11 +28,9 @@ export default {
             text-align: center;
             background: #00AAEE;
             color: #FFF;
-            &:nth-child(2){
-                background: #00BBCC;
-            }
-            &:nth-child(4){
-                background: #00BBCC;
+            img{
+                height: 100%;
+                width: 100%;
             }
         }
     }
