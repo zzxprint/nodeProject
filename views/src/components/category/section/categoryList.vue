@@ -91,10 +91,10 @@ export default {
             // 动画
             setTimeout(() => {
                 childDiv.className += ' ' + 'left'
-            }, 1);
+            }, 10);
             setTimeout(() => {
                 childDiv.className += ' ' + 'drop'
-            }, 20);
+            }, 30);
             // 放到父元素中
             parentDiv.appendChild(childDiv)
         },
