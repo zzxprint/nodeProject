@@ -23,6 +23,7 @@ export default {
     overflow: hidden;
     box-sizing: border-box;
     background: #F5F6FA;
+    padding: 5px;
     /deep/ .el-scrollbar{
         height: 100%;
         .el-scrollbar__wrap {
