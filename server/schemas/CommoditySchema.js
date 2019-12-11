@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var CategorySchema = new Schema({
+var CommoditySchema = new Schema({
     categoryId: String,
     commodityId: String,
     commodityName: String,
     commodityInfo: String,
     commodityImg: String,
-    commofityPrice: String
+    commodityPrice: String
 });
 
-module.exports = CategorySchema;
+module.exports = CommoditySchema;
