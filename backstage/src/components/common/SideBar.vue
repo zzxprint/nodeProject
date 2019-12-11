@@ -2,6 +2,7 @@
     <div class="side-bar">
         <el-scrollbar>
             <el-menu
+            router
             default-active="1-1"
             class="el-menu-vertical-demo"
             @open="handleOpen"
@@ -15,8 +16,8 @@
                         <span>商品管理</span>
                     </template>
                     <el-menu-item-group>
-                        <el-menu-item index="1-1">选项1</el-menu-item>
-                        <el-menu-item index="1-2">选项2</el-menu-item>
+                        <el-menu-item index="/insertCommodity">新增商品</el-menu-item>
+                        <el-menu-item index="/manageCommodity">管理商品</el-menu-item>
                     </el-menu-item-group>
                 </el-submenu>
                 <el-menu-item index="2">
