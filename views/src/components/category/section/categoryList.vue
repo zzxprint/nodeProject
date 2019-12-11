@@ -85,7 +85,7 @@ export default {
             let parentDiv = document.querySelector('#app')
             // 生成子元素
             let childDiv = document.createElement('div')
-            childDiv.className = 'balloon'
+            childDiv.className = 'drop-balloon'
             childDiv.style.left = (x - 10) + 'px'
             childDiv.style.bottom = (y - 13) + 'px'
             // 动画
@@ -97,6 +97,11 @@ export default {
             }, 30);
             // 放到父元素中
             parentDiv.appendChild(childDiv)
+            // 动画执行完删除元素
+            setTimeout(() => {
+                let ball = document.getElementsByClassName('drop-balloon')
+                ball[0].remove()
+            }, 1000)
         },
     }
 }
@@ -178,13 +183,13 @@ export default {
 </style>
 
 <style>
-.balloon{
+.drop-balloon{
     height: 40px;
     width: 40px;
     z-index: 999;
     border-radius: 50%;
     background: #00AAEE;
-    position: absolute;
+    position: fixed;
     transition: all 1s;
 }
 .left{
