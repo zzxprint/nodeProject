@@ -4,12 +4,15 @@
         <ul class="list-content" v-if="cartTotalCount != 0">
             <van-swipe-cell v-for="(item, index) in cartList" :key="index" :right-width="100">
                 <li class="commodity-box">
+                    <!-- 是否被选中 -->
                     <div class="select-btn">
                         <van-checkbox v-model="item.selected"></van-checkbox>
                     </div>
+                    <!-- 商品图片 -->
                     <div class="img-box">
                         <img :src="item.commodityImg" alt="">
                     </div>
+                    <!-- 商品信息 -->
                     <div class="info-box">
                         <div class="info-title"><span>{{item.commodityName}}</span></div>
                         <div class="info-brief">{{item.commodityInfo}}</div>
@@ -23,6 +26,7 @@
                         </div>
                     </div>
                 </li>
+                <!-- 左滑删除 -->
                 <template slot="right">
                     <van-button block square type="danger" text="删除" @click="deleteCommodity(item, index)"/>
                 </template>
@@ -53,12 +57,7 @@ export default {
     methods: {
         // 删除一个购物车商品
         deleteCommodity(item, index) {
-            this.$dialog.confirm({
-                message: '删除商品？'
-            }).then(() => {
-                // 购物车删除一个商品
-                this.$store.commit('DELETE_COMMODITY', item)
-            }).catch(() => {})
+            this.$store.commit('DELETE_COMMODITY', item)
         },
         // 增加一个商品
         plusCommodity(item, index) {

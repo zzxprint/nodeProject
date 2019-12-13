@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Commodity = require('../models/Commodity')
 
+// 根据ID获取商品列表
 router.post('/getCommodity',function(req, res, next) {
     Commodity.find({categoryId: req.body.categoryId}, function(err, commodityList) {
         if(err) throw err;
@@ -9,6 +10,15 @@ router.post('/getCommodity',function(req, res, next) {
     })
 });
 
+// 随机获取N个商品
+router.post('/getRandomCommodity',function(req, res, next) {
+    Commodity.aggregate([{ $sample: { size: req.body.size}}], function(err, commodityList) {
+        if(err) throw err;
+        res.json({commodityList});
+    })
+});
+
+// 插入商品信息
 router.post('/insertCommodity',function(req, res, next) {
     Commodity.findOne({commodityId: req.body.commodityId}, function(err, data) {
         if(data) {
