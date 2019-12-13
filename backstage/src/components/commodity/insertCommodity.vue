@@ -4,9 +4,10 @@
             <el-form ref="form" :model="form" label-width="100px">
                 <el-form-item label="商品分类" prop="categoryId">
                     <el-select v-model="form.categoryId" placeholder="请选择商品分类">
-                        <el-option label="泡面" value="1"></el-option>
-                        <el-option label="薯片" value="2"></el-option>
-                        <el-option label="饮料" value="3"></el-option>
+                        <el-option v-for="item in categoryList" :key="item.id"
+                            :label="item.categoryName"
+                            :value="item.categoryId">
+                        </el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="商品条形码" prop="commodityId">
@@ -50,6 +51,7 @@
 export default {
     data() {
         return {
+            categoryList: '', //商品分类列表
             form: {
                 categoryId: '', //分类Id
                 commodityId: '', //商品Id
@@ -58,11 +60,23 @@ export default {
                 commodityImg: '', //商品图片
                 commodityPrice: '' //商品价格
             },
-            dialogImageUrl: '',
-            dialogVisible: false,
+            dialogImageUrl: '', //放大图片的Url
+            dialogVisible: false, //是否展示大图
         }
     },
+    created() {
+        // 获取商品分类
+        this.getCategory()
+    },
     methods: {
+        // 获取商品分类
+        getCategory() {
+            this.$axios.post('/api/category/getAllCategory').then(res => {
+                this.categoryList = res.data.category
+            }).catch(err => {
+                console.log(err)
+            })
+        },
         // 提交
         onSubmit() {
             for(let item in this.form) {

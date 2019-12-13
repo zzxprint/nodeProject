@@ -5,7 +5,7 @@
                 <div class="icon-background" @click="toCategory('1')">
                     <svg-icon icon-class="noodles"></svg-icon>
                 </div>
-                <span>泡面</span>
+                <span>方便面</span>
             </van-col>
             <van-col span="5">
                 <div class="icon-background" @click="toCategory('2')">
