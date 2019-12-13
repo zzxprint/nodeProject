@@ -1,5 +1,5 @@
 <template>
-    <div class="insert-commodity">
+    <div class="insert-form">
         <div class="submit-form">
             <el-form ref="form" :model="form" label-width="100px">
                 <el-form-item label="商品分类" prop="categoryId">
@@ -49,9 +49,14 @@
 
 <script>
 export default {
+    props: {
+        // 商品分类列表
+        categoryList: {
+            type: Array
+        }
+    },
     data() {
         return {
-            categoryList: '', //商品分类列表
             form: {
                 categoryId: '', //分类Id
                 commodityId: '', //商品Id
@@ -64,19 +69,7 @@ export default {
             dialogVisible: false, //是否展示大图
         }
     },
-    created() {
-        // 获取商品分类
-        this.getCategory()
-    },
     methods: {
-        // 获取商品分类
-        getCategory() {
-            this.$axios.post('/api/category/getAllCategory').then(res => {
-                this.categoryList = res.data.category
-            }).catch(err => {
-                console.log(err)
-            })
-        },
         // 提交
         onSubmit() {
             for(let item in this.form) {
@@ -144,9 +137,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.insert-commodity{
+.insert-form{
     .submit-form{
-        width: 500px;
         /deep/ .el-select{
             width: 100%;
         }

@@ -39,20 +39,20 @@ export default {
     watch: {
         // 当前选择的分类ID
         categoryId() {
-            this.getCategoryList(this.categoryId)
+            this.getCommodityList(this.categoryId)
         }
     },
     created() {
         // 加载时默认获取商品列表,否则获取缓存列表
         if(this.categoryId == '') {
-            this.getCategoryList('1')
+            this.getCommodityList('1')
         }else {
-            this.getCategoryList(this.categoryId)
+            this.getCommodityList(this.categoryId)
         }
     },
     methods: {
         // 请求商品信息
-        getCategoryList(categoryId) {
+        getCommodityList(categoryId) {
             let submitForm = {categoryId: categoryId}
             // 请求商品信息
             this.$axios.post('/commodity/getCommodity',submitForm).then(res => {

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/components/home'
-import insertCommodity from '@/components/commodity/insertCommodity'
+import insertCommodity from '@/components/commodity/insert/insertCommodity'
 import manageCommodity from '@/components/commodity/manageCommodity'
 
 Vue.use(Router)

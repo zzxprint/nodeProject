@@ -1,9 +1,9 @@
 <template>
     <div class="category-side">
         <ul>
-            <li 
-            v-for="item in sideList" 
-            :key="item.categoryId" 
+            <li
+            v-for="item in sideList"
+            :key="item.categoryId"
             :class="{'active': item.categoryId == chooseId}"
             @click="chooseCategory(item.categoryId)"
             >
@@ -19,7 +19,7 @@ export default {
     data(){
         return {
             sideList: [],
-            chooseId: '1', // 选择的商品列表ID
+            chooseId: '1', // 选择的商品分类ID
         }
     },
     computed: {
