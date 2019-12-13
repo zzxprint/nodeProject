@@ -88,12 +88,17 @@ export default {
             childDiv.className = 'drop-balloon'
             childDiv.style.left = (x - 10) + 'px'
             childDiv.style.bottom = (y - 13) + 'px'
+            // 生成vant元素
+            let vantDiv = document.createElement('i')
+            vantDiv.className = 'van-icon van-icon-cart-circle cart-icon'
+            childDiv.appendChild(vantDiv)
             // 动画
             setTimeout(() => {
                 childDiv.className += ' ' + 'left'
             }, 10);
             setTimeout(() => {
                 childDiv.className += ' ' + 'drop'
+                vantDiv.className += ' ' + 'shrink'
             }, 30);
             // 放到父元素中
             parentDiv.appendChild(childDiv)
@@ -184,12 +189,12 @@ export default {
 
 <style>
 .drop-balloon{
-    height: 40px;
-    width: 40px;
+    position: fixed;
+    height: 60px;
+    width: 60px;
     z-index: 999;
     border-radius: 50%;
-    background: #00AAEE;
-    position: fixed;
+    /* background: #00AAEE; */
     transition: all 1s;
 }
 .left{
@@ -201,5 +206,14 @@ export default {
     height: 0;
     width: 0;
     transition: cubic-bezier(.5,-0.25,.9,-0.09) 0.7s;
+}
+.cart-icon{
+    margin-bottom: 20px;
+    font-size: 60px;
+    color: #00AAEE;
+}
+.shrink{
+    font-size: 1px !important;
+    transition: all 1s;
 }
 </style>
