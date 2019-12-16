@@ -7,7 +7,8 @@ var CommoditySchema = new Schema({
     commodityName: String,
     commodityInfo: String,
     commodityImg: String,
-    commodityPrice: String
+    commodityPrice: String,
+    discountPrice: String
 });
 
 module.exports = CommoditySchema;

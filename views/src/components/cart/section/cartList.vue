@@ -17,7 +17,15 @@
                         <div class="info-title"><span>{{item.commodityName}}</span></div>
                         <div class="info-brief">{{item.commodityInfo}}</div>
                         <div class="shop-box">
-                            <div class="price-box">￥{{item.commodityPrice}}</div>
+                            <!-- 无折扣时显示 -->
+                            <div class="price-box" v-if="item.discountPrice == undefined || item.discountPrice == ''">
+                                <span>￥{{item.commodityPrice}}</span>
+                            </div>
+                            <!-- 有折扣时显示 -->
+                            <div class="price-box" v-if="item.discountPrice != undefined && item.discountPrice != ''">
+                                <span>￥{{item.discountPrice}}</span>
+                                <del><span>￥</span><span>{{item.commodityPrice}}</span></del>
+                            </div>
                             <div class="count-box">
                                 <svg-icon v-if="item.count>0" @click="minusCommodity(item, index)" icon-class="minus"></svg-icon>
                                 <span v-if="item.count>0">{{item.count}}</span>
@@ -61,6 +69,13 @@ export default {
         },
         // 增加一个商品
         plusCommodity(item, index) {
+            // 判断购物车折扣商品是否超出上限
+            for(let i = 0; i < this.cartList.length; i++) {
+                if(this.cartList[i].commodityId == item.commodityId && this.cartList[i].count == 2) {
+                    this.$toast('折扣商品最多只能购买2件')
+                    return
+                }
+            }
             this.$store.commit('PLUS_COMMODITY', item)
         },
         // 减少一个商品
@@ -144,8 +159,14 @@ export default {
                     justify-content: space-between;
                     align-items: center;
                     .price-box{
+                        display: flex;
+                        flex-direction: column;
                         font-size: 32px;
                         color: #00AAEE;
+                        del{
+                            font-size: 28px;
+                            color: #999;
+                        }
                     }
                     .count-box{
                         display: flex;

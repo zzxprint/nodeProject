@@ -9,7 +9,6 @@ var mongoose = require('./config/mongoose.js');
 var db = mongoose();
 var bodyParser = require('body-parser'); //解析post请求参数
 
-var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var categoryRouter = require('./routes/category');
@@ -39,7 +38,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/category', categoryRouter);

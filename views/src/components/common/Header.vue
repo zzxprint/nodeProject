@@ -39,7 +39,7 @@ export default {
                 return
             }
             this.$dialog.confirm({
-                message: '确定删除所选中商品？'
+                message: '确定删除所选中的' + this.cartSelectCount + '件商品？'
             }).then(() => {
                 this.$store.commit('DELETE_SELECT_COMMODITY')
             }).catch(() => {})

@@ -12,8 +12,14 @@
                     <div class="content-info">{{item.commodityInfo}}</div>
                     <!-- 价格以及购物车图标 -->
                     <div class="content-shop">
-                        <div class="shop-price">
-                            <span>￥</span><span>{{item.commodityPrice}}</span>
+                        <!-- 无折扣时显示 -->
+                        <div class="shop-price" v-if="item.discountPrice == undefined || item.discountPrice == ''">
+                            <span>￥{{item.commodityPrice}}</span>
+                        </div>
+                        <!-- 有折扣时显示 -->
+                        <div class="shop-price" v-if="item.discountPrice != undefined && item.discountPrice != ''">
+                            <span>￥{{item.discountPrice}}</span>
+                            <del><span>￥</span><span>{{item.commodityPrice}}</span></del>
                         </div>
                         <div class="shop-cart">
                             <van-icon name="cart-circle" @click="plusCommodity(item)"/>
@@ -26,11 +32,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
             commodityList: [], //商品列表
         }
+    },
+    computed: {
+        ...mapGetters([
+            'cartList'
+        ]),
     },
     created() {
         this.getRandomCommodity()
@@ -46,6 +58,13 @@ export default {
         },
         // 加入购物车
         plusCommodity(item) {
+            // 判断购物车折扣商品是否超出上限
+            for(let i = 0; i < this.cartList.length; i++) {
+                if(this.cartList[i].commodityId == item.commodityId && this.cartList[i].count == 2) {
+                    this.$toast('折扣商品最多只能购买2件')
+                    return
+                }
+            }
             // 改变store中商品数量
             this.$store.commit('PLUS_COMMODITY', item)
             // 生成一个球
@@ -91,11 +110,11 @@ export default {
 .shop-list{
     width: 100%;
     .list-content{
-        margin-top: 15px;
-        padding: 0 20px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-top: 15px;
+        padding: 0 20px;
         .commodity-box{
             display: flex;
             flex-direction: column;
@@ -129,12 +148,13 @@ export default {
                     align-items: center;
                     margin-top: auto;
                     .shop-price{
+                        display: flex;
+                        flex-direction: column;
                         font-size: 32px;
                         color: #00AAEE;
-                        span{
-                            &:first-child{
-                                font-size: 22px;
-                            }
+                        del{
+                            font-size: 28px;
+                            color: #999;
                         }
                     }
                     .shop-cart{

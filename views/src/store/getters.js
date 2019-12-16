@@ -8,7 +8,14 @@ const getters = {
         let price = 0
         for(let i = 0; i < state.shoppingCart.cartList.length; i++){
             if(state.shoppingCart.cartList[i].selected == true){
-                price += state.shoppingCart.cartList[i].count * Number(state.shoppingCart.cartList[i].commodityPrice)
+                let discountPrice = state.shoppingCart.cartList[i].discountPrice
+                if(discountPrice != undefined && discountPrice != ''){
+                    // 当商品有折扣时
+                    price += state.shoppingCart.cartList[i].count * Number(state.shoppingCart.cartList[i].discountPrice)
+                }else{
+                    // 当商品没有折扣时
+                    price += state.shoppingCart.cartList[i].count * Number(state.shoppingCart.cartList[i].commodityPrice)
+                }
             }
         }
         return price
@@ -34,12 +41,13 @@ const getters = {
         }
         return count
     },
+    // 购物车选中的商品数量
     cartSelectCount: state => {
         let count = 0
         if(state.shoppingCart.cartList.length != 0){
             for(let i = 0; i < state.shoppingCart.cartList.length; i++){
                 if(state.shoppingCart.cartList[i].selected){
-                    count++
+                    count += state.shoppingCart.cartList[i].count
                 }
             }
         }

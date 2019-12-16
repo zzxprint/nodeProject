@@ -10,6 +10,14 @@ router.post('/getCommodity',function(req, res, next) {
     })
 });
 
+// 获取首页打折商品
+router.post('/getDiscountCommodity', function(req, res, next) {
+    Commodity.find({discountPrice: {'$exists': true}, discountPrice: {$gt: 0}}, function(err, commodityList) {
+        if(err) throw err;
+        res.json({commodityList});
+    })
+});
+
 // 随机获取N个商品
 router.post('/getRandomCommodity',function(req, res, next) {
     Commodity.aggregate([{ $sample: { size: req.body.size}}], function(err, commodityList) {
