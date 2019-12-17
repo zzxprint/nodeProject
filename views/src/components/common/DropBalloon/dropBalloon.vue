@@ -29,9 +29,9 @@ export default {
                 childDiv.className += ' ' + 'drop'
                 vantDiv.className += ' ' + 'shrink'
             }, 30);
-            // 放到父元素中
+            // // 放到父元素中
             parentDiv.appendChild(childDiv)
-            // 动画执行完删除元素
+            // // 动画执行完删除元素
             setTimeout(() => {
                 let ball = document.getElementsByClassName('drop-balloon')
                 ball[0].remove()
@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .drop-balloon{
     position: fixed;
     height: 60px;

@@ -71,7 +71,7 @@ export default {
             // 改变store中商品数量
             this.$store.commit('PLUS_COMMODITY', item)
             // 生成一个球
-            this.setBalloon()
+            this.$setDropBalloon()
         },
         // 生成一个球
         setBalloon() {
