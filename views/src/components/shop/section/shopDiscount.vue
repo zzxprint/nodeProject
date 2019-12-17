@@ -13,10 +13,7 @@
                     <div class="content-title">{{item.commodityName | longName}}</div>
                     <!-- 价格以及购物车图标 -->
                     <div class="content-shop">
-                        <div class="shop-price">
-                            <span>￥{{item.discountPrice}}</span>
-                            <del><span>￥</span><span>{{item.commodityPrice}}</span></del>
-                        </div>
+                        <PriceBox :commodity="item"></PriceBox>
                         <div class="shop-cart">
                             <van-icon name="cart-circle" @click="plusCommodity(item)"/>
                         </div>
@@ -164,16 +161,6 @@ export default {
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
-            .shop-price{
-                display: flex;
-                flex-direction: column;
-                font-size: 32px;
-                color: #00AAEE;
-                del{
-                    font-size: 28px;
-                    color: #999;
-                }
-            }
             .shop-cart{
                 display: flex;
                 align-items: center;

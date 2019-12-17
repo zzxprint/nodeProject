@@ -10,15 +10,7 @@
                     <div class="info-title"><span>{{item.commodityName}}</span></div>
                     <div class="info-brief">{{item.commodityInfo}}</div>
                     <div class="shop-box">
-                        <!-- 无折扣时显示 -->
-                        <div class="price-box" v-if="item.discountPrice == undefined || item.discountPrice == ''">
-                            <span>￥{{item.commodityPrice}}</span>
-                        </div>
-                        <!-- 有折扣时显示 -->
-                        <div class="price-box" v-if="item.discountPrice != undefined && item.discountPrice != ''">
-                            <span>￥{{item.discountPrice}}</span>
-                            <del><span>￥</span><span>{{item.commodityPrice}}</span></del>
-                        </div>
+                        <PriceBox :commodity="item"></PriceBox>
                         <div class="count-box">
                             <van-icon name="cart-circle" @click="plusCommodity(item)"/>
                         </div>
@@ -172,16 +164,6 @@ export default {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    .price-box{
-                        display: flex;
-                        flex-direction: column;
-                        font-size: 32px;
-                        color: #00AAEE;
-                        del{
-                            font-size: 28px;
-                            color: #999;
-                        }
-                    }
                     .count-box{
                         display: flex;
                         align-items: center;
