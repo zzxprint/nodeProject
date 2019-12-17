@@ -1,8 +1,5 @@
 <template>
     <div class="drop-balloon-content">
-        <div class="drop-balloon">
-            <i class="van-icon van-icon-cart-circle cart-icon"></i>
-        </div>
     </div>
 </template>
 

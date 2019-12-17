@@ -5,11 +5,9 @@ export default {
         for(let i = 0; i < cartList.length; i++) {
             if(cartList[i].discountPrice != undefined && cartList[i].discountPrice != '') {
                 // 当商品有折扣时判断
-                if(cartList[i].commodityId == item.commodityId && cartList[i].count == 2) {
+                if(cartList[i].commodityId == item.commodityId && cartList[i].count >= 2) {
                     return false
                 }
-            }else{
-                break
             }
         }
         return true
