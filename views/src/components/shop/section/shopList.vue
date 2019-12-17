@@ -52,9 +52,14 @@ export default {
         plusCommodity(item) {
             // 判断购物车折扣商品是否超出上限
             for(let i = 0; i < this.cartList.length; i++) {
-                if(this.cartList[i].commodityId == item.commodityId && this.cartList[i].count == 2) {
-                    this.$toast('折扣商品最多只能购买2件')
-                    return
+                if(this.cartList[i].discountPrice != undefined && this.cartList[i].discountPrice != '') {
+                    // 当商品有折扣时判断
+                    if(this.cartList[i].commodityId == item.commodityId && this.cartList[i].count == 2) {
+                        this.$toast('折扣商品最多只能购买2件')
+                        return
+                    }
+                }else{
+                    break;
                 }
             }
             // 改变store中商品数量

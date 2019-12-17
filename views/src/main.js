@@ -10,6 +10,7 @@ import Vant from 'vant' // 引入vant
 import store from './store'
 import GlobalComponent from './common/js/globalComponents' // 全局组件
 import VueAwesomeSwiper from 'vue-awesome-swiper' // swiper
+import DropBalloon from './components/common/DropBalloon' // 购物车降落的小球
 import './common/js/rem.js' // 样式适配
 import './icons' // svg
 import 'vant/lib/index.css'
@@ -29,6 +30,7 @@ axios.defaults.baseURL = 'http://localhost:3000/'
 Vue.use(Vant)
 Vue.use(GlobalComponent)
 Vue.use(VueAwesomeSwiper)
+Vue.use(DropBalloon)
 
 Vue.config.productionTip = false
 
