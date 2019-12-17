@@ -38,8 +38,9 @@ export default {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 15px 0;
             .title-bold{
-                font-size: 32px;
+                font-size: 34px;
                 color: #333;
             }
             .title-thin{
