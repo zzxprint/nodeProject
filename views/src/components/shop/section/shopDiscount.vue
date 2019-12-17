@@ -125,6 +125,7 @@ export default {
         flex-direction: column;
         height: auto;
         padding: 0 15px;
+        box-sizing: border-box;
     }
     .swiper-slide-active{
         height: auto;
