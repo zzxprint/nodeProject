@@ -62,11 +62,9 @@ export default {
         // 增加一个商品
         plusCommodity(item, index) {
             // 判断购物车折扣商品是否超出上限
-            for(let i = 0; i < this.cartList.length; i++) {
-                if(this.cartList[i].commodityId == item.commodityId && this.cartList[i].count == 2) {
-                    this.$toast('折扣商品最多只能购买2件')
-                    return
-                }
+            if(!this.$util.canPlusCommodity(item, this.cartList)) {
+                this.$toast('折扣商品最多只能购买2件')
+                return
             }
             this.$store.commit('PLUS_COMMODITY', item)
         },
