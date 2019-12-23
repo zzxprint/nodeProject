@@ -2,8 +2,8 @@
     <div class="cart-submit" v-if="cartTotalCount != 0">
         <van-submit-bar
         :price="cartTotalPrice*100"
-        button-text="提交订单"
-        @submit="submitOrder"
+        button-text="去结算"
+        @submit="gotoOrder"
         >
             <van-checkbox v-model="checked">全选</van-checkbox>
         </van-submit-bar>
@@ -33,8 +33,8 @@ export default {
         }
     },
     methods: {
-        submitOrder() {
-
+        gotoOrder() {
+            this.$router.push('order')
         }
     }
 }

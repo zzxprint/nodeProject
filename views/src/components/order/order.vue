@@ -1,16 +1,12 @@
 <template>
     <div class="order">
-        order
-        <button @click="go">进入</button>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
 export default {
 	methods: {
-		go () {
-			this.$router.push('/orderDetail')
-		}
 	}
 }
 </script>
