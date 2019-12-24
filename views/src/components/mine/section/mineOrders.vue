@@ -6,7 +6,7 @@
                 <span class="title-thin">全部订单<svg-icon icon-class="arrowRight"></svg-icon></span>
             </div>
             <div class="orders-icon">
-                <van-grid>
+                <van-grid :border="false">
                     <van-grid-item icon="paid" text="待支付" />
                     <van-grid-item icon="bag-o" text="待收货" />
                     <van-grid-item icon="comment-o" text="待评价" />

@@ -5,7 +5,7 @@
                 <span class="title-bold">我的服务</span>
             </div>
             <div class="service-icon">
-                <van-grid :column-num="3">
+                <van-grid :column-num="3" :border="false">
                     <van-grid-item icon="location-o" text="收货地址" />
                     <van-grid-item icon="vip-card-o" text="我的会员" />
                     <van-grid-item icon="envelop-o" text="意见反馈" />

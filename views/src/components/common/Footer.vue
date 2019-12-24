@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-		<van-tabbar v-model="active" active-color="#00AAEE" route>
+		<van-tabbar v-model="active" active-color="#00AAEE" route safe-area-inset-bottom>
 			<van-tabbar-item to="/" name="shop" icon="shop-o">首页</van-tabbar-item>
 			<van-tabbar-item to="/category" name="order" icon="description">分类</van-tabbar-item>
 			<van-tabbar-item to="/cart" name="cart" icon="shopping-cart-o" :info="cartCount">购物车</van-tabbar-item>
@@ -36,6 +36,7 @@ export default {
 	left: 0;
 	height: 100px;
 	width: 100%;
+	z-index: 999;
 	box-shadow: 0 -2px 5px #EFEFEF;
 	/deep/ .van-info{
 		right: -15px;
