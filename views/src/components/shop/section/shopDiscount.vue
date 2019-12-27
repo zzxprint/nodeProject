@@ -6,7 +6,7 @@
             <swiper-slide v-for="item in this.commodityList" :key="item.id">
                 <!-- 商品图片 -->
                 <div class="commodity-image">
-                    <img :src="item.commodityImg">
+                    <img :src="'/api/' + item.commodityImg">
                 </div>
                 <div class="commodity-content">
                     <!-- 商品标题 -->

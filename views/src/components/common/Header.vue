@@ -54,7 +54,12 @@ export default {
         height: 100px;
         width: 100%;
         background: #F5F5F5;
-        position: relative;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
         .header-backicon{
             position: absolute;
             left: 15px;

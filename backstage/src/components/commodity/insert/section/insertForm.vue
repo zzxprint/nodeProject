@@ -126,7 +126,7 @@ export default {
         },
         // 上传图片成功
         handleSuccess(res, file, fileList){
-            this.form.commodityImg = 'http://localhost:3000/images/commodity/' + res.path.split('\\').pop()
+            this.form.commodityImg = '/images/commodity/' + res.path.split('\\').pop()
         }
     },
     beforeDestory() {

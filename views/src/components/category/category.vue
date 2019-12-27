@@ -2,10 +2,12 @@
     <div class="category">
         <!-- 头部 -->
         <Header title="分类"></Header>
-        <!-- 侧边栏 -->
-        <category-side></category-side>
-        <!-- 商品列表 -->
-        <category-list></category-list>
+        <div class="category-content">
+            <!-- 侧边栏 -->
+            <category-side></category-side>
+            <!-- 商品列表 -->
+            <category-list></category-list>
+        </div>
     </div>
 </template>
 
@@ -21,5 +23,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+.category{
+    .category-content{
+        padding-top: 100px;
+        background: #FFF;
+    }
+}
 </style>

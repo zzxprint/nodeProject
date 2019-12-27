@@ -2,10 +2,12 @@
     <div class="cart">
         <!-- 头部 -->
         <Header title="购物车" :showDelete="cartTotalCount!=0"></Header>
-        <!-- 购物车列表 -->
-        <cart-list></cart-list>
-        <!-- 订单提交 -->
-        <cart-submit></cart-submit>
+        <div class="cart-content">
+            <!-- 购物车列表 -->
+            <cart-list></cart-list>
+            <!-- 订单提交 -->
+            <cart-submit></cart-submit>
+        </div>
     </div>
 </template>
 
@@ -33,5 +35,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+.cart{
+    .cart-content{
+        padding-top: 100px;
+    }
+}
 </style>

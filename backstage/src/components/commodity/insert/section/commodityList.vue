@@ -19,7 +19,7 @@
                 <div class="item-content">
                     <div class="commodity-pad" v-for="item in commodityList" :key="item.id">
                         <el-card shadow="hover" :body-style="{ padding: '0px' }">
-                            <img :src="item.commodityImg" class="image">
+                            <img :src="'/api/' + item.commodityImg" class="image">
                             <div style="padding: 14px;">
                                 <div class="commodity-id">
                                     <span>条形码:{{item.commodityId}}</span>
