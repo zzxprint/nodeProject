@@ -4,7 +4,7 @@
         <ul class="list-content">
             <li v-for="(item, index) in commodity" :key="index" class="commodity-box">
                 <div class="img-box" @click="photoView('/api/' + item.commodityImg)">
-                    <img :src="'/api/' + item.commodityImg" alt="">
+                    <img v-lazy="'/api/' + item.commodityImg" alt="">
                 </div>
                 <div class="info-box">
                     <div class="info-title"><span>{{item.commodityName}}</span></div>
