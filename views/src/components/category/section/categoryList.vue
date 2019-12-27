@@ -53,6 +53,8 @@ export default {
     methods: {
         // 请求商品信息
         getCommodityList(categoryId) {
+            // 先清空数组
+            this.commodity = []
             let submitForm = {categoryId: categoryId}
             // 请求商品信息
             this.$axios.post('/commodity/getCommodity',submitForm).then(res => {
