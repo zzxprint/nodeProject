@@ -1,6 +1,6 @@
 <template>
     <div class="index">
-        <div class="content">
+        <div class="main-content">
             <router-view></router-view>
         </div>
         <Footer></Footer>
@@ -15,7 +15,7 @@ export default {
 
 <style lang="less" scoped>
 .index{
-    .content{
+    .main-content{
         height: auto;
         width: 100%;
         margin-bottom: 100px;

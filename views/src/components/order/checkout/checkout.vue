@@ -1,11 +1,13 @@
 <template>
     <div class="checkout">
-        <!-- 头部 -->
-        <Header title="结算"></Header>
-        <!-- 地址信息 -->
-        <user-address></user-address>
-        <!-- 订单内的商品 -->
-        <order-list></order-list>
+        <div class="content">
+            <!-- 头部 -->
+            <Header title="结算"></Header>
+            <!-- 地址信息 -->
+            <user-address></user-address>
+            <!-- 订单内的商品 -->
+            <order-list></order-list>
+        </div>
     </div>
 </template>
 

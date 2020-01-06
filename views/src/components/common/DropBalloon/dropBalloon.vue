@@ -9,7 +9,6 @@ export default {
         setDropBalloon() {
             // 获取坐标
             let x = event.clientX //鼠标位置的横坐标
-            console.log(window.screen.availHeight)
             let y = window.innerHeight - event.clientY
             // 获取父元素
             let parentDiv = document.getElementsByClassName('drop-balloon-content')[0]

@@ -4,7 +4,7 @@
         <div class="order-single" v-if="cartList.length == 1">
             <div class="order-info">
                 <div class="commodity-image">
-                    <img :src="cartList[0].commodityImg" >
+                    <img :src="'/api/' + cartList[0].commodityImg" >
                 </div>
                 <div class="commodity-name">
                     <p class="name">{{cartList[0].commodityName}}</p>
@@ -22,7 +22,7 @@
         <!-- 多件商品 -->
         <div class="order-multiple" v-if="cartList.length > 1">
             <div class="order-images">
-                <img v-for="item in cartList" :key="item.id" :src="item.commodityImg">
+                <img v-for="item in cartList" :key="item.id" :src="'/api/' + item.commodityImg">
             </div>
             <div class="more-btn">
                 <span>共{{cartTotalCount}}件</span><van-icon name="arrow" />
@@ -92,9 +92,12 @@ export default {
         align-items: center;
         .order-images{
             display: flex;
+            max-width: 280px;
+            overflow: hidden;
             img{
                 height: 120px;
                 width: 120px;
+                padding: 5px;
             }
         }
         .more-btn{

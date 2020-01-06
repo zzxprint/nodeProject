@@ -26,7 +26,7 @@ Router.prototype.push = function push (location) {
 
 Vue.prototype.$axios = axios
 Vue.prototype.$util = util
-axios.defaults.baseURL = 'http://192.168.200.19:3000/'
+axios.defaults.baseURL = 'http://192.168.200.13:3000/'
 
 Vue.use(Vant)
 Vue.use(GlobalComponent)
