@@ -92,7 +92,7 @@ export default {
         align-items: center;
         .order-images{
             display: flex;
-            max-width: 280px;
+            max-width: 520px;
             overflow: hidden;
             img{
                 height: 120px;

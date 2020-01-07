@@ -6,7 +6,7 @@
                 <li class="commodity-box">
                     <!-- 是否被选中 -->
                     <div class="select-btn">
-                        <van-checkbox v-model="item.selected"></van-checkbox>
+                        <van-checkbox v-model="item.selected" checked-color="#00AAEE"></van-checkbox>
                     </div>
                     <!-- 商品图片 -->
                     <div class="img-box">
@@ -112,11 +112,6 @@ export default {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                // 覆盖样式
-                /deep/ .van-checkbox__icon--checked .van-icon{
-                    background: #00AAEE;
-                    border-color: #00AAEE;
-                }
             }
             .img-box{
                 height: 160px;
