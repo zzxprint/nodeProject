@@ -95,6 +95,7 @@ export default {
             max-width: 520px;
             overflow: hidden;
             img{
+                flex-shrink: 0;
                 height: 120px;
                 width: 120px;
                 padding: 5px;
