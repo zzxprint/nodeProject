@@ -72,7 +72,7 @@ export default {
         getCommodityList() {
             let submitForm = {categoryId: this.chooseId}
             // 请求商品信息
-            this.$axios.post('/api/commodity/getCommodity',submitForm).then(res => {
+            this.$axios.post('/commodity/getCommodity',submitForm).then(res => {
                 this.commodityList = res.data.commodityList
             }).catch(err => {
                 console.log(err)

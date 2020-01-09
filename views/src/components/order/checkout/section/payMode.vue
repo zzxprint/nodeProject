@@ -43,7 +43,7 @@ export default {
     background: #FFF;
     box-sizing: border-box;
     .pay-title{
-        border-bottom: 1px solid #DFDFDF;
+        border-bottom: 1px solid #EFEFEF;
         line-height: 100px;
         font-size: 32px;
     }

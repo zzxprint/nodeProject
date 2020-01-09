@@ -3,11 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router' // 引入路由文件
+import http from './router/http' // 引入axios配置
 import Router from 'vue-router' // 解决路由报错问题
 import axios from 'axios' // 引入axios
 import util from './common/js/util' //扩展函数
 import Vant from 'vant' // 引入vant
-import store from './store'
+import store from './store' //VUEX
 import GlobalComponent from './common/js/globalComponents' // 全局组件
 import VueAwesomeSwiper from 'vue-awesome-swiper' // swiper
 import DropBalloon from './components/common/DropBalloon' // 购物车降落的小球
@@ -26,7 +27,6 @@ Router.prototype.push = function push (location) {
 
 Vue.prototype.$axios = axios
 Vue.prototype.$util = util
-axios.defaults.baseURL = 'http://192.168.200.13:3000/'
 
 Vue.use(Vant)
 Vue.use(GlobalComponent)
@@ -40,6 +40,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  http,
   store,
   components: { App },
   template: '<App/>'

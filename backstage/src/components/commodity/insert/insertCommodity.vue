@@ -36,7 +36,7 @@ export default {
     methods: {
         // 获取商品分类
         getCategory() {
-            this.$axios.post('/api/category/getAllCategory').then(res => {
+            this.$axios.post('/category/getAllCategory').then(res => {
                 this.categoryList = res.data.category
             }).catch(err => {
                 console.log(err)

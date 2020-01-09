@@ -81,7 +81,7 @@ export default {
                     return
                 }
             }
-            this.$axios.post('/api/commodity/insertCommodity',this.form).then(res => {
+            this.$axios.post('/commodity/insertCommodity',this.form).then(res => {
                 if(res.data.success) {
                     this.$message({
                         type: 'success',
@@ -111,7 +111,7 @@ export default {
             let submitForm = {
                 commodityImg: this.form.commodityImg.split('/').pop()
             }
-            this.$axios.post('/api/upload/deleteImg', submitForm).then(res => {
+            this.$axios.post('/upload/deleteImg', submitForm).then(res => {
                 if(res.data.success) {
                     this.$refs.uploadImg.clearFiles()
                 }

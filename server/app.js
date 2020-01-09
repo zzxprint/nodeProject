@@ -8,6 +8,7 @@ var cors = require('cors'); //跨域配置
 var mongoose = require('./config/mongoose.js');
 var db = mongoose();
 var bodyParser = require('body-parser'); //解析post请求参数
+var jwtAuth = require('./config/jwt.js') //拦截token中间件
 
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
@@ -19,9 +20,9 @@ var app = express();
 
 // cors跨域配置
 app.use(cors({
-  // origin:['http://localhost:8088','http://localhost:8089'], //允许这个域的访问
+  origin:['http://localhost:8088','http://localhost:8089'], //允许这个域的访问
   methods:['GET','POST'], //只允许GET和POST请求
-  allowedHeaders:['Content-Type','Authorization'] //直允许带这两种请求头的连接访问
+  allowedHeaders:['Content-Type','Authorization'] //允许带这两种请求头的连接访问
 }))
 
 // 解析post参数
@@ -38,11 +39,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-app.use('/category', categoryRouter);
-app.use('/commodity', commodityRouter);
-app.use('/upload', uploadRouter);
+//拦截token中间件,设置请求范围
+app.use('/api', jwtAuth);
+
+app.use('/api/users', usersRouter);
+app.use('/api/login', loginRouter);
+app.use('/api/category', categoryRouter);
+app.use('/api/commodity', commodityRouter);
+app.use('/api/upload', uploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
