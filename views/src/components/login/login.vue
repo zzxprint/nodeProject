@@ -79,8 +79,9 @@ export default {
             })
         }
     },
-    beforeDestory() {
+    beforeRouteLeave(to, from, next) {
         document.body.style.backgroundColor = "#F5F5F5"
+        next()
     }
 }
 </script>
