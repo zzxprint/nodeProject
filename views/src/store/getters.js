@@ -19,10 +19,7 @@ const getters = {
             }
         }
         // 计算价格，保留两位小数
-        price = price * 100 / 100
-        if(price.toString().split('.')[1] && price.toString().split('.')[1].length == 1){
-            price = price + '0'
-        }
+        price = (price * 100 / 100).toFixed(2)
         return price
     },
     // 购物车是否全选
