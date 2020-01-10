@@ -72,7 +72,7 @@ export default {
                         this.$router.replace('/')
                     }
                 }else{
-                    this.$toast(res.msg)
+                    this.$toast(res.data.msg)
                 }
             }).catch(err => {
                 console.log(err)
