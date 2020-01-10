@@ -15,8 +15,9 @@ router.post('/login',function(req, res, next) {
                 res.json({success: false, msg: '密码错误'})
             }else{
                 // 密码正确，删除敏感信息
-                delete userInfo.password
-                res.json({success: true, userInfo: userInfo})
+                var userBaseInfo = JSON.parse(JSON.stringify(userInfo))
+                delete userBaseInfo.password
+                res.json({success: true, userInfo: userBaseInfo})
             }
         }else{
             res.json({success: false, msg: '用户名不存在'})

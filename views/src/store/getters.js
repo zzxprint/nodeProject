@@ -54,7 +54,9 @@ const getters = {
             }
         }
         return count
-    }
+    },
+    // 用户信息
+    userInfo: state => state.user.userInfo
 }
 
 export default getters

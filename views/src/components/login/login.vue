@@ -67,6 +67,7 @@ export default {
                     sessionStorage.setItem('token', res.data.token)
                     // 如果有下一步的路径
                     if(this.$route.params.nextPath){
+                        this.$store.commit('SET_USERINFO', res.data.userInfo)
                         this.$router.replace(this.$route.params.nextPath)
                     }else{
                         this.$router.replace('/')
